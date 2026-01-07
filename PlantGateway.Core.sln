@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36705.20 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Core", "PlantGateway.Core\PlantGateway.Core.csproj", "{FDC0C1DD-2FCB-4A98-ABA9-E585BEA1A446}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDC0C1DD-2FCB-4A98-ABA9-E585BEA1A446}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDC0C1DD-2FCB-4A98-ABA9-E585BEA1A446}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDC0C1DD-2FCB-4A98-ABA9-E585BEA1A446}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDC0C1DD-2FCB-4A98-ABA9-E585BEA1A446}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {343A9495-36A0-40C3-9727-5329533C372E}
+	EndGlobalSection
+EndGlobal
