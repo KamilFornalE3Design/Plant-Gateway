@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Persistance", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Persistance.DataAccess", "PlantGateway.Persistance.DataAccess\PlantGateway.Persistance.DataAccess.csproj", "{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Presentation.CLI", "PlantGateway.Presentation.CLI\PlantGateway.Presentation.CLI.csproj", "{FBF64B26-8A25-3B00-548B-486340D785FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Domain", "PlantGateway.Domain\PlantGateway.Domain.csproj", "{57B85E7C-A2ED-B531-D98D-074E0DC426AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Application", "PlantGateway.Application\PlantGateway.Application.csproj", "{8C2013A1-2CD0-EF3D-45BC-8026F6F916D3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +45,18 @@ Global
 		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBF64B26-8A25-3B00-548B-486340D785FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBF64B26-8A25-3B00-548B-486340D785FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBF64B26-8A25-3B00-548B-486340D785FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBF64B26-8A25-3B00-548B-486340D785FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57B85E7C-A2ED-B531-D98D-074E0DC426AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57B85E7C-A2ED-B531-D98D-074E0DC426AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57B85E7C-A2ED-B531-D98D-074E0DC426AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57B85E7C-A2ED-B531-D98D-074E0DC426AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C2013A1-2CD0-EF3D-45BC-8026F6F916D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C2013A1-2CD0-EF3D-45BC-8026F6F916D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C2013A1-2CD0-EF3D-45BC-8026F6F916D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C2013A1-2CD0-EF3D-45BC-8026F6F916D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
