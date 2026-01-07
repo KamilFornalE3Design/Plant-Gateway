@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PlantGateway.Core.Config\PlantGateway.Core.Config.csproj" />
     <ProjectReference Include="..\PlantGateway.Core\PlantGateway.Core.csproj" />
+    <ProjectReference Include="..\PlantGateway.Persistance.DataAccess\PlantGateway.Persistance.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

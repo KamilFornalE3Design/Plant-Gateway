@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Core.Config", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Integration.Aveva", "PlantGateway.Integration.Aveva\PlantGateway.Integration.Aveva.csproj", "{3BCE1E3A-D352-6B9F-98A4-D07F87B66CD8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Persistance", "PlantGateway.Persistance\PlantGateway.Persistance.csproj", "{C40EDD01-4346-73DD-C174-975E45347351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantGateway.Persistance.DataAccess", "PlantGateway.Persistance.DataAccess\PlantGateway.Persistance.DataAccess.csproj", "{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3BCE1E3A-D352-6B9F-98A4-D07F87B66CD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BCE1E3A-D352-6B9F-98A4-D07F87B66CD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BCE1E3A-D352-6B9F-98A4-D07F87B66CD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C40EDD01-4346-73DD-C174-975E45347351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C40EDD01-4346-73DD-C174-975E45347351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C40EDD01-4346-73DD-C174-975E45347351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C40EDD01-4346-73DD-C174-975E45347351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8651DEA2-39C3-D4AA-9095-F6E72B7353F3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
