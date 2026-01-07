@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PlantGateway.Core.Config\PlantGateway.Core.Config.csproj" />
+    <ProjectReference Include="..\PlantGateway.Domain\PlantGateway.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
