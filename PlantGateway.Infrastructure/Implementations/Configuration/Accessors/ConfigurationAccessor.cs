@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace PlantGateway.Infrastructure.Implementations.Configuration.Accessors
 {
-    internal sealed class ConfigurationAccessor
+    public sealed class ConfigurationAccessor
     {
         private readonly IConfiguration _config;
 
