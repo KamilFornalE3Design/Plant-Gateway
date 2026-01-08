@@ -11,4 +11,9 @@
     <ProjectReference Include="..\PlantGateway.Domain\PlantGateway.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\Configuration\Resolver\" />
+    <Folder Include="Implementations\Configuration\" />
+  </ItemGroup>
+
 </Project>

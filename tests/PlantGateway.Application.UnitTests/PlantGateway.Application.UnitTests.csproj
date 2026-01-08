@@ -22,4 +22,10 @@
     <ProjectReference Include="..\..\PlantGateway.Application\PlantGateway.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Abstractions\Configuration\" />
+    <Folder Include="Events\Configuration\" />
+    <Folder Include="Implementations\Configuration\" />
+  </ItemGroup>
+
 </Project>
