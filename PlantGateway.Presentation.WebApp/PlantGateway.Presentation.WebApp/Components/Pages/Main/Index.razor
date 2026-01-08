@@ -1,0 +1,16 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@inject NavigationManager Nav
+@layout MainLayout
+
+<h3>Main dashboard</h3>
+
+<button onclick="@BtnClick">Test Btn</button>
+
+@code {
+
+    void BtnClick()
+    {
+        Nav.NavigateTo("https://learn.microsoft.com/aspnet/core/");
+    }
+}

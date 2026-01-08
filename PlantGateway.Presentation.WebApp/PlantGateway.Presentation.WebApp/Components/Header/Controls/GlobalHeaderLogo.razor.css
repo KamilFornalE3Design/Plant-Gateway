@@ -1,0 +1,18 @@
+﻿/* HEADER LOGO */
+.pg-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    margin-right: 12px;
+}
+
+.pg-logo-image {
+    height: 24px;
+    margin-right: 8px;
+}
+
+.pg-logo-text {
+    font-size: 16px;
+    font-weight: 400; /* non-bold to differentiate from company wordmark */
+}

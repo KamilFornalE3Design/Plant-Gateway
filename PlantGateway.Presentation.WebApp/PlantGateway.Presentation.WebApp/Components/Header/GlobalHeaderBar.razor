@@ -1,0 +1,107 @@
+﻿@using PlantGateway.Presentation.WebApp.Application.Abstractions.Layout
+@using PlantGateway.Presentation.WebApp.Application.Contracts.Layout
+@implements IDisposable
+@inject ILayoutContextProvider LayoutContextProvider
+
+<header class="pg-header">
+    <div class="pg-header-left">
+
+        <!-- Context selector -->
+        <GlobalHeaderContextSelector />
+
+
+        <!-- Tiny debug so you SEE the enum changing -->
+        <span class="pg-context-debug">@_currentContext</span>
+
+        <span class="pg-separator-vertical" aria-hidden="true"></span>
+
+        <GlobalHeaderLogo AppName="Plant Gateway"
+                          CurrentContext="_currentContext" />
+
+        <GlobalHeaderPageTitle Title="@PageTitle" />
+    </div>
+
+    <div class="pg-header-right">
+        <GlobalSearchBox />
+        <HelpMenuButton />
+        <UserProfileMenu />
+    </div>
+</header>
+
+@code {
+    /// <summary>
+    /// Displayed app name next to the logo.
+    /// </summary>
+    [Parameter]
+    public string AppName { get; set; } = "Plant Gateway";
+
+    /// <summary>
+    /// Current page title (center text).
+    /// </summary>
+    [Parameter]
+    public string PageTitle { get; set; } = "Tasks";
+
+    /// <summary>
+    /// Layout context used by the parent layout (Main, Admin, Docs, ...).
+    /// </summary>
+    [Parameter]
+    public LayoutContextId LayoutContext { get; set; } = LayoutContextId.Main;
+
+    /// <summary>
+    /// Notifies parent layout that context has changed (optional).
+    /// </summary>
+    [Parameter]
+    public EventCallback<LayoutContextId> LayoutContextChanged { get; set; }
+
+    private IReadOnlyList<LayoutContextDefinition> _contexts = Array.Empty<LayoutContextDefinition>();
+    private LayoutContextId _currentContext;
+
+
+    protected override void OnInitialized()
+    {
+        // All available contexts for the selector
+        _contexts = LayoutContextProvider.All;
+
+        // Initialize from provider (URL-driven)
+        _currentContext = LayoutContextProvider.GetCurrent();
+
+        // Listen for external context changes (URL, other nav, etc.)
+        LayoutContextProvider.OnChanged += OnProviderContextChanged;
+    }
+
+    protected override void OnParametersSet()
+    {
+        // If parent forces a given LayoutContext, sync our local state
+        if (_currentContext != LayoutContext)
+        {
+            _currentContext = LayoutContext;
+        }
+    }
+
+    private void OnProviderContextChanged(LayoutContextId ctx)
+    {
+        _currentContext = ctx;
+        InvokeAsync(StateHasChanged);
+    }
+
+    private void OnContextChanged(LayoutContextId newCtx)
+    {
+        LayoutContextProvider.SetCurrent(newCtx);
+        Serilog.Log.Information("GlobalHeaderBar: Changed context to {Context}", newCtx);
+    }
+
+
+    private void OnContextSelectorChanged(LayoutContextId newCtx)
+    {
+        // Delegate navigation + state updates to provider
+        LayoutContextProvider.SetCurrent(newCtx);
+
+        Serilog.Log.Information("GlobalHeaderBar: Changed context to {Context}", newCtx);
+    }
+
+    public void Dispose()
+    {
+        LayoutContextProvider.OnChanged -= OnProviderContextChanged;
+    }
+}
+

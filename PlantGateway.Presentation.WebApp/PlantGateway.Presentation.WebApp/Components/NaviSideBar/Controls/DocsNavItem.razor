@@ -1,0 +1,44 @@
+﻿@using PlantGateway.Presentation.WebApp.Navigation
+
+<li class="pg-sidebar-nav-item-block" style="margin-left:@(Level * 12)px">
+
+    <div class="pg-sidebar-nav-item-row">
+
+        @if (HasChildren)
+        {
+            <button class="pg-sidebar-nav-item-expander"
+                    @onclick="Toggle">
+                <i data-lucide="@ChevronIcon"></i>
+            </button>
+        }
+
+        <NavLink href="@Item.Url"
+                 class="pg-sidebar-nav-item"
+                 Match="NavLinkMatch.Prefix"
+                 ActiveClass="pg-sidebar-nav-item-active">
+            @Item.Text
+        </NavLink>
+    </div>
+
+    @if (IsExpanded && HasChildren)
+    {
+        <ul class="pg-sidebar-nav-items">
+            @foreach (var child in Item.Children)
+            {
+                <DocsNavItem Item="child" Level="@(Level + 1)" />
+            }
+        </ul>
+    }
+</li>
+
+@code {
+    [Parameter] public DocsNavigation.Item Item { get; set; } = default!;
+    [Parameter] public int Level { get; set; }
+
+    private bool IsExpanded { get; set; }
+    private bool HasChildren => Item.Children is { Count: > 0 };
+
+    private void Toggle() => IsExpanded = !IsExpanded;
+
+    private string ChevronIcon => IsExpanded ? "chevron-down" : "chevron-right";
+}

@@ -1,0 +1,23 @@
+﻿@inject NavigationManager Nav
+
+<select class="pg-context-selector"
+        @onchange="OnChanged">
+
+    <option value="/">Main layout</option>
+    <option value="/admin">Admin layout</option>
+    <option value="/docs">Docs layout</option>
+
+</select>
+
+@code {
+    private void OnChanged(ChangeEventArgs e)
+    {
+        var uri = e.Value?.ToString();
+
+        if (!string.IsNullOrWhiteSpace(uri))
+        {
+            Nav.NavigateTo(uri);
+            Console.WriteLine($"Selector navigate to: {uri}");
+        }
+    }
+}

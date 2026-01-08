@@ -1,0 +1,27 @@
+﻿.pg-header {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.pg-header-left,
+.pg-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* Vertical separator right after context */
+.pg-separator-vertical {
+    width: 1px;
+    height: 24px;
+    margin: 0 8px;
+    background-color: #d0d0d0;
+}
+

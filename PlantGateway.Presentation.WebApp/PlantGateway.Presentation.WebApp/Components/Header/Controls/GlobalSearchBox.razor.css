@@ -1,0 +1,29 @@
+﻿/* GLOBAL SEARCH */
+.pg-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 280px;
+    max-width: 380px;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid #d0d0d0;
+    background-color: #f8f8f8;
+}
+
+    .pg-search i {
+        margin-right: 8px;
+        font-size: 16px;
+    }
+
+    .pg-search input {
+        border: none;
+        outline: none;
+        font-size: 13px;
+        width: 100%;
+        background: transparent;
+    }
+
+        .pg-search input::placeholder {
+            color: #a0a0a0;
+        }

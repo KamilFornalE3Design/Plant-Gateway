@@ -1,0 +1,62 @@
+﻿@* /Shared/Header/Controls/HelpMenuButton.razor *@
+<div class="pg-help-menu" @onclick:stopPropagation="true">
+    <!-- temp debug -->
+    <span style="font-size:10px;color:#999;margin-right:4px;">
+        open: @_isOpen, items: @_items.Count
+    </span>
+
+    <!-- circular ? button -->
+    <button type="button"
+            class="pg-icon-btn"
+            @onclick="OnToggleClicked">
+        <i data-lucide="help-circle"></i>
+    </button>
+
+    @* POPUP *@
+    @if (_isOpen && _items.Count > 0)
+    {
+        <div class="pg-help-menu-popup">
+            @foreach (var item in _items)
+            {
+                <button type="button"
+                        class="pg-help-menu-item"
+                        @onclick="() => OnItemClick(item)">
+                    <span>@item.Label</span>
+                    @if (item.IsExternal)
+                    {
+                        <i data-lucide="external-link"></i>
+                    }
+                </button>
+            }
+        </div>
+    }
+</div>
+
+@code {
+    [Inject] private IHelpMenuProvider HelpMenuProvider { get; set; } = default!;
+    [Inject] private INavigationService Navigation { get; set; } = default!;
+
+    private bool _isOpen;
+    private List<HelpMenuItem> _items = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        var items = await HelpMenuProvider.GetItemsAsync();
+        _items = items.ToList();
+    }
+
+    private void OnToggleClicked()
+    {
+        _isOpen = !_isOpen;
+    }
+
+    private void OnItemClick(HelpMenuItem item)
+    {
+        _isOpen = false;
+
+        if (!string.IsNullOrWhiteSpace(item.TargetUrl))
+        {
+            Navigation.NavigateTo(item.TargetUrl, forceLoad: item.IsExternal);
+        }
+    }
+}

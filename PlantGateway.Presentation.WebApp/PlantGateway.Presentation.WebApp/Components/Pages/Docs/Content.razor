@@ -1,0 +1,68 @@
+﻿@page "/docs/hold/{*Path}"
+@layout DocsLayout
+@rendermode InteractiveWebAssembly
+
+
+@using Markdig
+@inject IWebHostEnvironment Env
+
+<div class="docs-content">
+    @RenderedContent
+</div>
+
+@code {
+    [Parameter] public string? DocPath { get; set; }
+
+    private MarkupString RenderedContent = new();
+
+    protected override void OnParametersSet()
+    {
+        var docsRoot = System.IO.Path.Combine(Env.WebRootPath, "docs");
+
+        if (string.IsNullOrWhiteSpace(DocPath))
+        {
+            RenderedContent = (MarkupString)"<h2>No document selected.</h2>";
+            return;
+        }
+
+        // Normalize path
+        var clean = DocPath.Trim('/').Replace("\\", "/");
+        var segments = clean.Split('/', StringSplitOptions.RemoveEmptyEntries);
+        var slug = segments.Last();
+
+        var candidates = new List<string>();
+
+        // Direct match
+        candidates.Add(System.IO.Path.Combine(docsRoot, clean + ".md"));
+
+        // Folder index
+        candidates.Add(System.IO.Path.Combine(docsRoot, clean, "index.md"));
+
+        // Numbered file at root
+        candidates.AddRange(Directory.GetFiles(docsRoot, "*-" + slug + ".md", SearchOption.TopDirectoryOnly));
+
+        // Numbered folder files
+        var numberedDirs = Directory.GetDirectories(docsRoot, "*-" + slug, SearchOption.TopDirectoryOnly);
+        foreach (var dir in numberedDirs)
+        {
+            candidates.Add(System.IO.Path.Combine(dir, "index.md"));
+            candidates.AddRange(Directory.GetFiles(dir, "*.md", SearchOption.TopDirectoryOnly));
+        }
+
+        var file = candidates.FirstOrDefault(File.Exists);
+
+        if (file is null)
+        {
+            RenderedContent = (MarkupString)$"<h2>Document not found</h2><p><code>{DocPath}</code></p>";
+            return;
+        }
+        var markdown = File.ReadAllText(file);
+
+        var pipeline = new MarkdownPipelineBuilder()
+            .UseAdvancedExtensions()
+            .Build();
+
+        var html = Markdown.ToHtml(markdown, pipeline);
+        RenderedContent = new MarkupString(html);
+    }
+}

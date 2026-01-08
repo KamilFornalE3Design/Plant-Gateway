@@ -1,0 +1,93 @@
+﻿.pg-section-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.pg-pipeline-card {
+    padding: 22px;
+    border-radius: 12px;
+    background: #fff;
+    width: 100vh;
+    max-width: 100vh;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+    display: flex;
+    flex-direction: row;
+}
+
+.pg-pipeline-settings-card {
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #dbd9d9;
+    border: 1px solid #e6e6e6;
+    max-width: 100vh;
+    margin-top: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.pg-field {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .pg-field label {
+        font-size: 13px;
+        color: #333;
+        margin-bottom: 4px;
+    }
+
+.pg-input {
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 14px;
+    background: #fafafa;
+}
+
+.pg-file-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.pg-run-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #0064d2;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+    .pg-run-btn:disabled {
+        opacity: .6;
+        cursor: not-allowed;
+    }
+
+.spinner {
+    width: 16px;
+    height: 16px;
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin .9s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.pg-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .pg-link:hover {
+        text-decoration: underline;
+    }

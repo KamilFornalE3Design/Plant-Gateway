@@ -1,0 +1,852 @@
+{
+  "totalDtos": 26,
+  "processedDtos": 26,
+  "processedPercent": 100.0,
+  "duration": "00:00:06.8106209",
+  "engines": {
+    "tokenEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "entityEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "disciplineEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "roleEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "suffixEngineResult": {
+      "ok": 17,
+      "missing": 9
+    },
+    "namingEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "tagEngineResult": {
+      "ok": 17,
+      "missing": 9
+    },
+    "hierarchyEngineResult": {
+      "ok": 26,
+      "missing": 0
+    },
+    "positionEngineResult": {
+      "ok": 0,
+      "missing": 26
+    },
+    "orientationEngineResult": {
+      "ok": 0,
+      "missing": 26
+    }
+  },
+  "warnings": [
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'WORL'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ GlobalMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ Local Matrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ GlobalMatrix not provided or invalid — skipping position-with-offset computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ GlobalMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "dtoName": "selule_cgl1_dmu",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ Local Matrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9e5c9d-d669-4d27-8c13-42d76ee76cb8",
+      "severity": "warning"
+    },
+    {
+      "id": "651d87d5-5295-445f-9392-de76f355e6b1",
+      "dtoName": "selulecgl1ens1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#651d87d5-5295-445f-9392-de76f355e6b1",
+      "severity": "warning"
+    },
+    {
+      "id": "651d87d5-5295-445f-9392-de76f355e6b1",
+      "dtoName": "selulecgl1ens1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#651d87d5-5295-445f-9392-de76f355e6b1",
+      "severity": "warning"
+    },
+    {
+      "id": "651d87d5-5295-445f-9392-de76f355e6b1",
+      "dtoName": "selulecgl1ens1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#651d87d5-5295-445f-9392-de76f355e6b1",
+      "severity": "warning"
+    },
+    {
+      "id": "4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "dtoName": "selulecgl1ens1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "severity": "warning"
+    },
+    {
+      "id": "4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "dtoName": "selulecgl1ens1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "severity": "warning"
+    },
+    {
+      "id": "4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "dtoName": "selulecgl1ens1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#4acc7e42-35c6-45a9-8ed9-8f7a2527853e",
+      "severity": "warning"
+    },
+    {
+      "id": "22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "dtoName": "30329318_cz01_entry_section",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.ENS01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "severity": "warning"
+    },
+    {
+      "id": "22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "dtoName": "30329318_cz01_entry_section",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "severity": "warning"
+    },
+    {
+      "id": "22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "dtoName": "30329318_cz01_entry_section",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "severity": "warning"
+    },
+    {
+      "id": "22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "dtoName": "30329318_cz01_entry_section",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "severity": "warning"
+    },
+    {
+      "id": "22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "dtoName": "30329318_cz01_entry_section",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#22ba11b3-0fc3-42fc-89d9-9d01f9d753ef",
+      "severity": "warning"
+    },
+    {
+      "id": "6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "dtoName": "selulecgl1las1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "severity": "warning"
+    },
+    {
+      "id": "6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "dtoName": "selulecgl1las1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "severity": "warning"
+    },
+    {
+      "id": "6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "dtoName": "selulecgl1las1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6f9d444e-65ad-4fc0-b82c-69462f700c70",
+      "severity": "warning"
+    },
+    {
+      "id": "344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "dtoName": "selulecgl1las1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "severity": "warning"
+    },
+    {
+      "id": "344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "dtoName": "selulecgl1las1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "severity": "warning"
+    },
+    {
+      "id": "344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "dtoName": "selulecgl1las1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#344954ac-c152-41c5-b1ca-3a3595e28e34",
+      "severity": "warning"
+    },
+    {
+      "id": "03914f89-6bf5-4318-9845-5286a77d55cc",
+      "dtoName": "30325893_cz02_entry_looper",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.LAS01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#03914f89-6bf5-4318-9845-5286a77d55cc",
+      "severity": "warning"
+    },
+    {
+      "id": "03914f89-6bf5-4318-9845-5286a77d55cc",
+      "dtoName": "30325893_cz02_entry_looper",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#03914f89-6bf5-4318-9845-5286a77d55cc",
+      "severity": "warning"
+    },
+    {
+      "id": "03914f89-6bf5-4318-9845-5286a77d55cc",
+      "dtoName": "30325893_cz02_entry_looper",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#03914f89-6bf5-4318-9845-5286a77d55cc",
+      "severity": "warning"
+    },
+    {
+      "id": "03914f89-6bf5-4318-9845-5286a77d55cc",
+      "dtoName": "30325893_cz02_entry_looper",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#03914f89-6bf5-4318-9845-5286a77d55cc",
+      "severity": "warning"
+    },
+    {
+      "id": "03914f89-6bf5-4318-9845-5286a77d55cc",
+      "dtoName": "30325893_cz02_entry_looper",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#03914f89-6bf5-4318-9845-5286a77d55cc",
+      "severity": "warning"
+    },
+    {
+      "id": "2107cf96-e587-45d9-8b66-e304f60c912b",
+      "dtoName": "selulecgl1fue1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2107cf96-e587-45d9-8b66-e304f60c912b",
+      "severity": "warning"
+    },
+    {
+      "id": "2107cf96-e587-45d9-8b66-e304f60c912b",
+      "dtoName": "selulecgl1fue1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2107cf96-e587-45d9-8b66-e304f60c912b",
+      "severity": "warning"
+    },
+    {
+      "id": "2107cf96-e587-45d9-8b66-e304f60c912b",
+      "dtoName": "selulecgl1fue1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2107cf96-e587-45d9-8b66-e304f60c912b",
+      "severity": "warning"
+    },
+    {
+      "id": "5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "dtoName": "selulecgl1fue1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "severity": "warning"
+    },
+    {
+      "id": "5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "dtoName": "selulecgl1fue1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "severity": "warning"
+    },
+    {
+      "id": "5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "dtoName": "selulecgl1fue1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#5b37621f-c643-4688-828a-e0aa5818cb7e",
+      "severity": "warning"
+    },
+    {
+      "id": "b34e0360-9f5f-4871-9c83-c52afd543121",
+      "dtoName": "30329918_cz03_furnace_section",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.FUE01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#b34e0360-9f5f-4871-9c83-c52afd543121",
+      "severity": "warning"
+    },
+    {
+      "id": "b34e0360-9f5f-4871-9c83-c52afd543121",
+      "dtoName": "30329918_cz03_furnace_section",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#b34e0360-9f5f-4871-9c83-c52afd543121",
+      "severity": "warning"
+    },
+    {
+      "id": "b34e0360-9f5f-4871-9c83-c52afd543121",
+      "dtoName": "30329918_cz03_furnace_section",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#b34e0360-9f5f-4871-9c83-c52afd543121",
+      "severity": "warning"
+    },
+    {
+      "id": "b34e0360-9f5f-4871-9c83-c52afd543121",
+      "dtoName": "30329918_cz03_furnace_section",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#b34e0360-9f5f-4871-9c83-c52afd543121",
+      "severity": "warning"
+    },
+    {
+      "id": "b34e0360-9f5f-4871-9c83-c52afd543121",
+      "dtoName": "30329918_cz03_furnace_section",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#b34e0360-9f5f-4871-9c83-c52afd543121",
+      "severity": "warning"
+    },
+    {
+      "id": "c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "dtoName": "selulecgl1gav1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "severity": "warning"
+    },
+    {
+      "id": "c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "dtoName": "selulecgl1gav1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "severity": "warning"
+    },
+    {
+      "id": "c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "dtoName": "selulecgl1gav1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c45ae1a0-5905-42af-b8c0-455f2cadab68",
+      "severity": "warning"
+    },
+    {
+      "id": "7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "dtoName": "selulecgl1gav1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "severity": "warning"
+    },
+    {
+      "id": "7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "dtoName": "selulecgl1gav1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "severity": "warning"
+    },
+    {
+      "id": "7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "dtoName": "selulecgl1gav1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#7f5bfe07-3e63-4d16-9b44-ce648cb4e26c",
+      "severity": "warning"
+    },
+    {
+      "id": "23f49396-997d-485f-9313-6c60af8ae5a0",
+      "dtoName": "30353252_cz04_intermediate_loop",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.GAV01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#23f49396-997d-485f-9313-6c60af8ae5a0",
+      "severity": "warning"
+    },
+    {
+      "id": "23f49396-997d-485f-9313-6c60af8ae5a0",
+      "dtoName": "30353252_cz04_intermediate_loop",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#23f49396-997d-485f-9313-6c60af8ae5a0",
+      "severity": "warning"
+    },
+    {
+      "id": "23f49396-997d-485f-9313-6c60af8ae5a0",
+      "dtoName": "30353252_cz04_intermediate_loop",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#23f49396-997d-485f-9313-6c60af8ae5a0",
+      "severity": "warning"
+    },
+    {
+      "id": "23f49396-997d-485f-9313-6c60af8ae5a0",
+      "dtoName": "30353252_cz04_intermediate_loop",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#23f49396-997d-485f-9313-6c60af8ae5a0",
+      "severity": "warning"
+    },
+    {
+      "id": "23f49396-997d-485f-9313-6c60af8ae5a0",
+      "dtoName": "30353252_cz04_intermediate_loop",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#23f49396-997d-485f-9313-6c60af8ae5a0",
+      "severity": "warning"
+    },
+    {
+      "id": "cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "dtoName": "selulecgl1rom1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "severity": "warning"
+    },
+    {
+      "id": "cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "dtoName": "selulecgl1rom1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "severity": "warning"
+    },
+    {
+      "id": "cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "dtoName": "selulecgl1rom1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#cff816c2-2a8f-4980-a65d-c83d7eb86e55",
+      "severity": "warning"
+    },
+    {
+      "id": "6733517a-89f5-484a-a8fb-64df96450d41",
+      "dtoName": "selulecgl1rom1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6733517a-89f5-484a-a8fb-64df96450d41",
+      "severity": "warning"
+    },
+    {
+      "id": "6733517a-89f5-484a-a8fb-64df96450d41",
+      "dtoName": "selulecgl1rom1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6733517a-89f5-484a-a8fb-64df96450d41",
+      "severity": "warning"
+    },
+    {
+      "id": "6733517a-89f5-484a-a8fb-64df96450d41",
+      "dtoName": "selulecgl1rom1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#6733517a-89f5-484a-a8fb-64df96450d41",
+      "severity": "warning"
+    },
+    {
+      "id": "2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "dtoName": "30354659_cz06_spm_only_referen",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.ROM01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "severity": "warning"
+    },
+    {
+      "id": "2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "dtoName": "30354659_cz06_spm_only_referen",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "severity": "warning"
+    },
+    {
+      "id": "2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "dtoName": "30354659_cz06_spm_only_referen",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "severity": "warning"
+    },
+    {
+      "id": "2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "dtoName": "30354659_cz06_spm_only_referen",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "severity": "warning"
+    },
+    {
+      "id": "2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "dtoName": "30354659_cz06_spm_only_referen",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#2245a49f-ecb0-4278-8d8a-96d78df557a3",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "dtoName": "selulecgl1tls1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "dtoName": "selulecgl1tls1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "severity": "warning"
+    },
+    {
+      "id": "8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "dtoName": "selulecgl1tls1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#8e9fc9de-f4ef-4a81-8f48-60e79df8f1d8",
+      "severity": "warning"
+    },
+    {
+      "id": "c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "dtoName": "selulecgl1tls1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "severity": "warning"
+    },
+    {
+      "id": "c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "dtoName": "selulecgl1tls1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "severity": "warning"
+    },
+    {
+      "id": "c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "dtoName": "selulecgl1tls1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#c33a09af-a9ec-45a4-8f7f-5fa81662b81e",
+      "severity": "warning"
+    },
+    {
+      "id": "46f25151-b3c6-499a-80e5-24887ea97a98",
+      "dtoName": "30354659_cz06_tension_lev_sec",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.TLS01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#46f25151-b3c6-499a-80e5-24887ea97a98",
+      "severity": "warning"
+    },
+    {
+      "id": "46f25151-b3c6-499a-80e5-24887ea97a98",
+      "dtoName": "30354659_cz06_tension_lev_sec",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#46f25151-b3c6-499a-80e5-24887ea97a98",
+      "severity": "warning"
+    },
+    {
+      "id": "46f25151-b3c6-499a-80e5-24887ea97a98",
+      "dtoName": "30354659_cz06_tension_lev_sec",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#46f25151-b3c6-499a-80e5-24887ea97a98",
+      "severity": "warning"
+    },
+    {
+      "id": "46f25151-b3c6-499a-80e5-24887ea97a98",
+      "dtoName": "30354659_cz06_tension_lev_sec",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#46f25151-b3c6-499a-80e5-24887ea97a98",
+      "severity": "warning"
+    },
+    {
+      "id": "46f25151-b3c6-499a-80e5-24887ea97a98",
+      "dtoName": "30354659_cz06_tension_lev_sec",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#46f25151-b3c6-499a-80e5-24887ea97a98",
+      "severity": "warning"
+    },
+    {
+      "id": "ee6951df-234a-4988-a498-65425c330840",
+      "dtoName": "selulecgl1pts1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#ee6951df-234a-4988-a498-65425c330840",
+      "severity": "warning"
+    },
+    {
+      "id": "ee6951df-234a-4988-a498-65425c330840",
+      "dtoName": "selulecgl1pts1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#ee6951df-234a-4988-a498-65425c330840",
+      "severity": "warning"
+    },
+    {
+      "id": "ee6951df-234a-4988-a498-65425c330840",
+      "dtoName": "selulecgl1pts1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#ee6951df-234a-4988-a498-65425c330840",
+      "severity": "warning"
+    },
+    {
+      "id": "eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "dtoName": "selulecgl1lax1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "severity": "warning"
+    },
+    {
+      "id": "eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "dtoName": "selulecgl1lax1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "severity": "warning"
+    },
+    {
+      "id": "eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "dtoName": "selulecgl1lax1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#eefa6778-f5df-41a1-98ac-a7c631aa0aad",
+      "severity": "warning"
+    },
+    {
+      "id": "e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "dtoName": "selulecgl1lax1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "severity": "warning"
+    },
+    {
+      "id": "e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "dtoName": "selulecgl1lax1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "severity": "warning"
+    },
+    {
+      "id": "e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "dtoName": "selulecgl1lax1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e1fba1a8-bde1-4ce5-bb0f-288cf3211cc1",
+      "severity": "warning"
+    },
+    {
+      "id": "66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "dtoName": "30357123_cz07_exit_looper",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.LAX01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "severity": "warning"
+    },
+    {
+      "id": "66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "dtoName": "30357123_cz07_exit_looper",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "severity": "warning"
+    },
+    {
+      "id": "66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "dtoName": "30357123_cz07_exit_looper",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "severity": "warning"
+    },
+    {
+      "id": "66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "dtoName": "30357123_cz07_exit_looper",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "severity": "warning"
+    },
+    {
+      "id": "66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "dtoName": "30357123_cz07_exit_looper",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#66c73037-fbea-4aa6-b7c0-2b6bc0aa4bd2",
+      "severity": "warning"
+    },
+    {
+      "id": "59d1d67b-72a2-407c-97d1-424a86035606",
+      "dtoName": "selulecgl1exs1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#59d1d67b-72a2-407c-97d1-424a86035606",
+      "severity": "warning"
+    },
+    {
+      "id": "59d1d67b-72a2-407c-97d1-424a86035606",
+      "dtoName": "selulecgl1exs1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#59d1d67b-72a2-407c-97d1-424a86035606",
+      "severity": "warning"
+    },
+    {
+      "id": "59d1d67b-72a2-407c-97d1-424a86035606",
+      "dtoName": "selulecgl1exs1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#59d1d67b-72a2-407c-97d1-424a86035606",
+      "severity": "warning"
+    },
+    {
+      "id": "e153889a-d952-43ea-9755-4efae44d718a",
+      "dtoName": "selulecgl1exs1fou1",
+      "engine": "HierarchyEngineResult",
+      "message": "⚠️ Discipline 'ME' not found; using DEFAULT.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e153889a-d952-43ea-9755-4efae44d718a",
+      "severity": "warning"
+    },
+    {
+      "id": "e153889a-d952-43ea-9755-4efae44d718a",
+      "dtoName": "selulecgl1exs1fou1",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e153889a-d952-43ea-9755-4efae44d718a",
+      "severity": "warning"
+    },
+    {
+      "id": "e153889a-d952-43ea-9755-4efae44d718a",
+      "dtoName": "selulecgl1exs1fou1",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#e153889a-d952-43ea-9755-4efae44d718a",
+      "severity": "warning"
+    },
+    {
+      "id": "1f48b3ba-0256-4979-8849-5b50d1597536",
+      "dtoName": "30344134_cz08_exit_sec",
+      "engine": "TokenEngineResult",
+      "message": "⚠️ Some tokens are missing or invalid in 'CGL01.EXS01.FOU01.001-CI_SDE'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#1f48b3ba-0256-4979-8849-5b50d1597536",
+      "severity": "warning"
+    },
+    {
+      "id": "1f48b3ba-0256-4979-8849-5b50d1597536",
+      "dtoName": "30344134_cz08_exit_sec",
+      "engine": "DisciplineEngineResult",
+      "message": "Discipline differs from inherited value 'ME'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#1f48b3ba-0256-4979-8849-5b50d1597536",
+      "severity": "warning"
+    },
+    {
+      "id": "1f48b3ba-0256-4979-8849-5b50d1597536",
+      "dtoName": "30344134_cz08_exit_sec",
+      "engine": "TagEngineResult",
+      "message": "⚠️ Check input data for missing components when building tag for 'EQUI'.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#1f48b3ba-0256-4979-8849-5b50d1597536",
+      "severity": "warning"
+    },
+    {
+      "id": "1f48b3ba-0256-4979-8849-5b50d1597536",
+      "dtoName": "30344134_cz08_exit_sec",
+      "engine": "PositionEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping position computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#1f48b3ba-0256-4979-8849-5b50d1597536",
+      "severity": "warning"
+    },
+    {
+      "id": "1f48b3ba-0256-4979-8849-5b50d1597536",
+      "dtoName": "30344134_cz08_exit_sec",
+      "engine": "OrientationEngineResult",
+      "message": "⚠️ AbsoluteMatrix not provided or invalid — skipping orientation computation.",
+      "link": "file:///C:/Users/e3des/Downloads/drop.xml#1f48b3ba-0256-4979-8849-5b50d1597536",
+      "severity": "warning"
+    }
+  ],
+  "errors": [],
+  "unprocessed": []
+}

@@ -1,0 +1,297 @@
+﻿@page "/data/pipelines"
+
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using DevExpress.Blazor
+@using DevExpress.Blazor.Internal
+
+@using Microsoft.JSInterop
+@using PlantGateway.Presentation.WebApp.Components.Layout
+@using PlantGateway.Presentation.WebApp.Features.Data.Services
+@using PlantGateway.Presentation.WebApp.Features.Data.Models
+@inject IPipelineRunnerService Runner
+@inject IJSRuntime JS
+
+@layout MainLayout
+
+
+<h3>Pipeline Test</h3>
+
+<div class="pg-pipeline-card">
+
+    <DxCard>
+        <DxCardHeader>
+            <b>Desktop Connector required</b>
+        </DxCardHeader>
+
+        <DxCardBody>
+            <p>
+                To run pipelines on your local machine, you need to configure the
+                <code>PGEDGE_CLI_LAUNCHER</code> environment variable via the Desktop Connector.
+            </p>
+
+            <ol>
+                <li>Open the connector folder on your machine:</li>
+            </ol>
+
+            <div class="pg-connector-path">
+                <code>@DesktopConnectorPath</code>
+                <DxButton CssClass="pg-copy-btn" Click="CopyConnectorPath">
+                    Copy
+                </DxButton>
+            </div>
+
+            <ol start="2">
+                <li>Run <b>PGEdgeDesktopConnector.exe</b> (or right-click <b>PGEdgeDesktopConnector.ps1</b> → Run with PowerShell).</li>
+                <li>Restart your browser and try the <b>Test Desktop CLI</b> button below.</li>
+            </ol>
+
+            <a href="pgedge://run/?cmd=pgedge%20--version" class="pg-btn-secondary">
+                Test Desktop CLI
+            </a>
+        </DxCardBody>
+    </DxCard>
+</div>
+
+<div class="pg-pipeline-card">
+
+    <DxCard>
+        <DxCardHeader>Pipeline Type</DxCardHeader>
+
+        <DxCardBody>
+
+            <InputSelect @bind-Value="SelectedCommand">
+                @foreach (var item in CommandItems)
+                {
+                    <option value="@item.Key">@item.Value</option>
+                }
+            </InputSelect>
+
+
+
+        </DxCardBody>
+
+        <DxCardBody>
+            <NavLink href="/docs" class="pg-link">
+                Read more...
+            </NavLink>
+        </DxCardBody>
+
+        <DxCardFooter>Footer</DxCardFooter>
+    </DxCard>
+
+    @* File *@
+    <DxCard>
+        <DxCardHeader>FILE</DxCardHeader>
+        <DxCardBody>
+
+            <DxTextBox @bind-Text="SelectedFile"
+                       Placeholder="C:\Users\e3des\Downloads\selule_cgl1_CI_dmu.xml" />
+
+        </DxCardBody>
+        <DxCardFooter>Footer</DxCardFooter>
+    </DxCard>
+
+    @* Mode *@
+    <DxCard>
+        <DxCardHeader>MODE</DxCardHeader>
+        <DxCardBody>
+
+            <InputSelect @bind-Value="SelectedMode">
+                <option value="dump">To Aveva</option>
+            </InputSelect>
+
+        </DxCardBody>
+        <DxCardFooter>Footer</DxCardFooter>
+    </DxCard>
+
+    @* Format *@
+    <DxCard>
+        <DxCardHeader>FORMAT</DxCardHeader>
+        <DxCardBody>
+
+            <InputSelect @bind-Value="SelectedFormat">
+                <option value="txt">TXT</option>
+            </InputSelect>
+
+        </DxCardBody>
+        <DxCardFooter>Footer</DxCardFooter>
+    </DxCard>
+
+    @* Format *@
+    <DxCard>
+        <DxCardHeader>CSYS</DxCardHeader>
+        <DxCardBody>
+
+            <InputSelect @bind-Value="SelectedCsys">
+                <option value="absolute">Absolute</option>
+                <option value="global">Global</option>
+                <option value="relative">Relative</option>
+            </InputSelect>
+
+        </DxCardBody>
+        <DxCardFooter>Footer</DxCardFooter>
+    </DxCard>
+
+</div>
+
+<div class="pg-pipeline-card" title="Result Execute Command">
+
+    <article>@ExecuteCommand</article>
+
+</div>
+
+<div class="pg-pipeline-card" title="Execute Command">
+
+    <DxCard>
+        <DxCardBody>
+            <button class="pg-btn" @onclick="@ChangeColor">Change Color</button>
+
+            <div style="margin-top:10px;
+                    width:200px;
+                    height:80px;
+                    border:1px solid #333;
+                    background:@_boxColor;">
+            </div>
+        </DxCardBody>
+    </DxCard>
+
+</div>
+
+
+
+@code {
+    private string _boxColor = "lightgray";
+
+    private async Task ChangeColor()
+    {
+        _boxColor = _boxColor == "green" ? "red" : "green";
+        await Task.Yield(); // force pipeline flush
+    }
+
+
+    private string DesktopConnectorPath =>
+        @"C:\Users\e3des\OneDrive - E3Design\Aplikacje\SMS Group\Production\SMSgroup.Aveva.Config\PGEdgeDesktopConnector.exe";
+
+
+    private async Task CopyConnectorPath()
+    {
+        await JS.InvokeVoidAsync("navigator.clipboard.writeText", DesktopConnectorPath);
+    }
+
+    private string _selectedCommand = "convert-mcad";
+    private string _selectedFile = "";
+    private string _selectedMode = "dump";
+    private string _selectedFormat = "txt";
+    private string _selectedCsys = "global";
+
+    private string ExecuteCommand = string.Empty;
+
+    private string _status = "Idle";
+
+    private string SelectedCommand
+    {
+        get => _selectedCommand;
+        set
+        {
+            _selectedCommand = value;
+            UpdateExecuteCommand();
+        }
+    }
+
+    private string SelectedFile
+    {
+        get => _selectedFile;
+        set
+        {
+            _selectedFile = value;
+            UpdateExecuteCommand();
+        }
+    }
+
+    private string SelectedMode
+    {
+        get => _selectedMode;
+        set
+        {
+            _selectedMode = value;
+            UpdateExecuteCommand();
+        }
+    }
+
+    private string SelectedFormat
+    {
+        get => _selectedFormat;
+        set
+        {
+            _selectedFormat = value;
+            UpdateExecuteCommand();
+        }
+    }
+
+    private string SelectedCsys
+    {
+        get => _selectedCsys;
+        set
+        {
+            _selectedCsys = value;
+            UpdateExecuteCommand();
+        }
+    }
+
+
+    public void OnCommandChanged(ChangeEventArgs e)
+    {
+        SelectedCommand = e.Value?.ToString() ?? string.Empty;
+        UpdateExecuteCommand();
+    }
+
+    private readonly List<KeyValuePair<string, string>> CommandItems =
+    [
+        new("convert mcad", "Convert MCAD to Aveva"),
+        new("convert top", "Convert TOP to Aveva"),
+    ];
+
+    private async Task OnFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+
+        // Use ONLY file name or full path?
+        SelectedFile = file.Name;
+
+        // If you want full path in future, tell me – browsers do not give path for security reasons.
+    }
+
+    private Task RunTest()
+    {
+        Console.WriteLine("Pipeline launched");
+        return Task.CompletedTask;
+    }
+
+    private void UpdateExecuteCommand()
+    {
+        Console.WriteLine("Updating Execute Command");
+
+        ExecuteCommand =
+            $"pgedge {SelectedCommand} -f \"{SelectedFile}\" --mode {SelectedMode} --format {SelectedFormat} --csys {SelectedCsys}";
+    }
+
+    // private async Task RunCli()
+    // {
+    //     _status = "Button clicked – starting pipeline...";
+    //     try
+    //     {
+    //         var req = new PipelineRunRequest(); // uses default CLI path
+    //         _status = $"Launching: {req.PlantGatewayCLIPath}";
+
+    //         var result = await Runner.RunPipelineAsync(req);
+
+    //         _status = $"Pipeline finished: {result}";
+    //     }
+    //     catch (Exception ex)
+    //     {
+    //         _status = $"ERROR: {ex.Message}";
+    //     }
+    // }
+}
+

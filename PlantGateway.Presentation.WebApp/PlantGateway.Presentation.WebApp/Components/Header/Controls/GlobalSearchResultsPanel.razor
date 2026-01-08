@@ -1,0 +1,45 @@
+﻿@* /Shared/Header/Controls/GlobalSearchResultsPanel.razor *@
+@if (IsVisible && ResultGroups?.Any() == true)
+{
+    <div class="pg-search-results">
+        @foreach (var group in ResultGroups!)
+        {
+            <div class="pg-search-results-group">
+                <div class="pg-search-results-group-title">@group.GroupName</div>
+
+                @foreach (var item in group.Items)
+                {
+                    <button class="pg-search-result-item"
+                            type="button"
+                            @onclick="() => OnItemClicked(item)">
+                        <i data-lucide="@item.Icon"></i>
+                        <div class="pg-search-result-text">
+                            <div class="pg-search-result-label">@item.Label</div>
+                            @if (!string.IsNullOrWhiteSpace(item.Description))
+                            {
+                                <div class="pg-search-result-description">
+                                    @item.Description
+                                </div>
+                            }
+                        </div>
+                    </button>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter] public IReadOnlyList<SearchResultGroup>? ResultGroups { get; set; }
+    [Parameter] public bool IsVisible { get; set; }
+
+    [Parameter] public EventCallback<SearchResultItem> OnResultSelected { get; set; }
+
+    private async Task OnItemClicked(SearchResultItem item)
+    {
+        if (OnResultSelected.HasDelegate)
+        {
+            await OnResultSelected.InvokeAsync(item);
+        }
+    }
+}

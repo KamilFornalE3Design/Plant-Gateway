@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+
+<div class="pg-layout pg-layout-docs">
+
+    <!-- LEFT NAVIGATION -->
+    <aside class="pg-sidebar pg-sidebar-docs">
+        <DocsNavMenu @rendermode="InteractiveServer" />
+    </aside>
+
+    <!-- MAIN CONTENT COLUMN -->
+    <main class="pg-content pg-content-docs">
+
+        <!-- PAGE-LEVEL HEADER -->
+        <header class="pg-content-header pg-content-header-docs px-4">
+            @* docs header: breadcrumbs / title / meta *@
+        </header>
+
+        <!-- SCROLLABLE BODY -->
+        <section class="pg-content-body pg-content-body-docs px-4">
+            @Body
+        </section>
+
+        <!-- PAGE-LEVEL FOOTER -->
+        <footer class="pg-content-footer pg-content-footer-docs">
+            <FooterBar />
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- This makes Lucide run after every layout render -->
+<LucideRenderer />
+
+@code {
+    // OPTIONAL: Set from each page
+    [Parameter] public string PageTitle { get; set; } = "Docs";
+
+    // Example profile data
+    public string UserName => "John Smith";
+
+    public LayoutContextId CurrentLayoutContext { get; set; } = LayoutContextId.Docs;
+
+    private void OnLayoutContextChanged(LayoutContextId newContext)
+    {
+        // NOT USED YET but REQUIRED to prevent the old context from overwriting the selection
+        // You can log or store if needed
+    }
+}

@@ -1,0 +1,49 @@
+﻿@inherits LayoutComponentBase
+
+<div class="pg-layout pg-layout-admin">
+
+    <!-- LEFT NAVIGATION -->
+    <aside class="pg-sidebar pg-sidebar-admin">
+        <AdminNavMenu @rendermode="InteractiveServer"/>
+    </aside>
+
+    <!-- MAIN CONTENT COLUMN -->
+    <main class="pg-content pg-content-admin">
+
+        <!-- PAGE-LEVEL HEADER -->
+        <header class="pg-content-header pg-content-header-admin px-4">
+            @* admin header content *@
+        </header>
+
+        <!-- SCROLLABLE BODY -->
+        <section class="pg-content-body pg-content-body-admin px-4">
+            @Body
+        </section>
+
+        <!-- PAGE-LEVEL FOOTER -->
+        <footer class="pg-content-footer pg-content-footer-admin">
+            <FooterBar />
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- This makes Lucide run after every layout render -->
+<LucideRenderer />
+
+@code {
+    // OPTIONAL: Set from each page
+    [Parameter] public string PageTitle { get; set; } = "Dashboard";
+
+    // Example profile data
+    public string UserName => "John Smith";
+
+    public LayoutContextId CurrentLayoutContext { get; set; } = LayoutContextId.Admin;
+
+    private void OnLayoutContextChanged(LayoutContextId newContext)
+    {
+        // NOT USED YET but REQUIRED to prevent the old context from overwriting the selection
+        // You can log or store if needed
+    }
+}

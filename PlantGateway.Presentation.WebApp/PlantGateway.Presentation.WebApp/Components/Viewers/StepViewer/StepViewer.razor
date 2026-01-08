@@ -1,0 +1,44 @@
+﻿@inject IJSRuntime JS
+@inherits ComponentBase
+
+<div class="pg-stepviewer" @attributes="AdditionalAttributes">
+    <div class="pg-stepviewer-toolbar">
+        <label class="pg-stepviewer-btn">
+            Load STEP File
+            <InputFile OnChange="OnFileChanged" />
+        </label>
+
+        <button class="pg-stepviewer-btn" @onclick="ResetView">Reset View</button>
+    </div>
+
+    <canvas @ref="canvasRef" class="pg-stepviewer-canvas"></canvas>
+</div>
+
+@code {
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object>? AdditionalAttributes { get; set; }
+
+    private ElementReference canvasRef;
+    private byte[]? buffer;
+
+    private async Task OnFileChanged(InputFileChangeEventArgs e)
+    {
+        buffer = new byte[e.File.Size];
+        await e.File.OpenReadStream().ReadAsync(buffer);
+        await InitializeViewer();
+    }
+
+    private async Task InitializeViewer()
+    {
+        if (buffer is null) return;
+
+        await JS.InvokeVoidAsync("StepViewerInterop.loadEngine");
+        await JS.InvokeVoidAsync("StepViewerInterop.loadStepFile", canvasRef, buffer);
+    }
+
+    private async Task ResetView()
+    {
+        await JS.InvokeVoidAsync("StepViewerInterop.resetView", canvasRef);
+    }
+}

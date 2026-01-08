@@ -1,0 +1,59 @@
+﻿@* /Shared/Header/Controls/GlobalSearchBox.razor *@
+<div class="pg-search" @onclick:stopPropagation="true">
+    <i data-lucide="search"></i>
+    <input type="text"
+           placeholder="Search..."
+           @bind="_query"
+           @bind:event="oninput"
+           @onkeydown="HandleKeyDown" />
+
+    <GlobalSearchResultsPanel ResultGroups="_results"
+                              IsVisible="_showResults"
+                              OnResultSelected="HandleResultSelected" />
+</div>
+
+@code {
+    [Inject] private IGlobalSearchService SearchService { get; set; } = default!;
+    [Inject] private INavigationService Navigation { get; set; } = default!;
+
+    private string _query = string.Empty;
+    private IReadOnlyList<SearchResultGroup>? _results;
+    private bool _showResults;
+
+    private async Task HandleKeyDown(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ExecuteSearchAsync();
+        }
+        else if (e.Key == "Escape")
+        {
+            _showResults = false;
+        }
+    }
+
+    private async Task ExecuteSearchAsync()
+    {
+        var trimmed = _query?.Trim();
+        if (string.IsNullOrEmpty(trimmed))
+        {
+            _results = Array.Empty<SearchResultGroup>();
+            _showResults = false;
+            return;
+        }
+
+        _results = await SearchService.SearchAsync(trimmed);
+        _showResults = _results.Any();
+    }
+
+    private void HandleResultSelected(SearchResultItem item)
+    {
+        _showResults = false;
+        _query = string.Empty;
+
+        if (!string.IsNullOrWhiteSpace(item.TargetRoute))
+        {
+            Navigation.NavigateTo(item.TargetRoute);
+        }
+    }
+}

@@ -1,0 +1,12 @@
+﻿@inherits LayoutComponentBase
+
+
+<GlobalHeaderBar @bind-LayoutContext="CurrentLayoutContext"
+                 PageTitle="Tasks" />
+
+<h3>LandingPageLayout</h3>
+
+@code {
+
+    public LayoutContextId CurrentLayoutContext { get; set; } = LayoutContextId.Main;
+}

@@ -1,0 +1,142 @@
+﻿/* =====================================
+   DIAGNOSTICS PAGE
+   ===================================== */
+
+.pg-diagnostics {
+    padding: 16px 24px;
+}
+
+/* Header (title + view toggle) */
+.pg-diagnostics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.pg-diagnostics-header-title {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.pg-diagnostics-header-subtitle {
+    font-size: 0.8rem;
+    color: #6b7280; /* Tailwind gray-500 */
+}
+
+/* Toolbar (Load JSON + extra actions) */
+.pg-diagnostics-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+/* Cards row */
+.pg-diagnostics-cards {
+    margin-bottom: 16px;
+}
+
+/* Make bootstrap `.card` look more modern on this page */
+.pg-diagnostics .card {
+    border-radius: 12px;
+    border: 1px solid #e5e7eb; /* gray-200 */
+    box-shadow: 0 2px 8px rgba(15, 23, 42, .05); /* subtle shadow */
+    background-color: #ffffff;
+}
+
+.pg-diagnostics .card-body {
+    padding: 12px 14px;
+}
+
+.pg-diagnostics .card-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+    color: #6b7280; /* gray-500 */
+    margin-bottom: 6px;
+}
+
+.pg-diagnostics .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+/* View toggle buttons (Messages / Engines) */
+.pg-diagnostics-view-toggle .btn {
+    border-radius: 9999px; /* pill */
+    padding: 4px 10px;
+    font-size: 0.8rem;
+}
+
+/* Messages grid */
+.pg-diagnostics .dxbl-grid {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+    /* Slightly smaller grid fonts */
+    .pg-diagnostics .dxbl-grid .dxbl-grid-table,
+    .pg-diagnostics .dxbl-grid .dxbl-grid-header,
+    .pg-diagnostics .dxbl-grid .dxbl-grid-data-row {
+        font-size: 0.85rem;
+    }
+
+/* Badge for engine / severity etc. */
+.pg-diagnostics .badge {
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+
+/* Engine matrix table (if you still use the plain <table> version somewhere) */
+.pg-diagnostics-engine-table {
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+}
+
+    .pg-diagnostics-engine-table table {
+        margin-bottom: 0;
+        font-size: 0.8rem;
+    }
+
+    .pg-diagnostics-engine-table th {
+        position: sticky;
+        top: 0;
+        background-color: #f9fafb; /* gray-50 */
+        z-index: 1;
+    }
+
+/* =====================================
+   DEVEXPRESS PAGER ICONS – FIX HUGE ARROWS
+   ===================================== */
+
+/* The usual cause of giant pager arrows:
+   some global CSS (like `button { font-size: 4rem; }`
+   or `svg { width: 100px; }`) is affecting DevExpress icons.
+   These overrides force pager buttons back to reasonable size
+   ONLY inside DevExpress grid. */
+
+.pg-diagnostics .dxbl-grid .dxbs-pager .dxbs-button {
+    padding: 4px 8px;
+    font-size: 0.8rem; /* normal text size */
+    line-height: 1.2;
+}
+
+    .pg-diagnostics .dxbl-grid .dxbs-pager .dxbs-button .dxbl-icon,
+    .pg-diagnostics .dxbl-grid .dxbs-pager .dxbs-button .dxbs-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 14px;
+    }
+
+
+/** tteesstt **/
+.pg-diagnostics .dxbl-grid .dxbs-pager .dxbs-button { font-size: 0.8rem; }
+.pg-diagnostics .dxbl-grid .dxbs-pager .dxbs-button .dxbl-icon { width:16px; height:16px; }

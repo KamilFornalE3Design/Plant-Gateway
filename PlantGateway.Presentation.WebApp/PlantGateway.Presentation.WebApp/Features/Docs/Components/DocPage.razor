@@ -1,0 +1,42 @@
+﻿@page "/docs/{*Slug}"
+@inject HttpClient Http
+
+<div Title="@PageTitle">
+    @if (Html != null)
+    {
+        @((MarkupString)Html)
+    }
+    else
+    {
+        <p>Document not found.</p>
+    }
+</div>
+
+@code {
+    [Parameter] public string Slug { get; set; } = default!;
+
+    private string? Html;
+    private string PageTitle = "Documentation";
+
+    protected override async Task OnParametersSetAsync()
+    {
+        // e.g. slug: "admin/appsettings"
+        var filePath = $"docs/{Slug}.md";
+
+        try
+        {
+            var md = await Http.GetStringAsync(filePath);
+            Html = Markdig.Markdown.ToHtml(md);
+
+            PageTitle = ExtractTitle(md) ?? Slug;
+        }
+        catch (HttpRequestException)
+        {
+            Html = null;
+        }
+    }
+
+    private string? ExtractTitle(string md)
+        => md.Split('\n').FirstOrDefault(x => x.StartsWith("#"))?
+            .Trim('#', ' ', '\r', '\t');
+}

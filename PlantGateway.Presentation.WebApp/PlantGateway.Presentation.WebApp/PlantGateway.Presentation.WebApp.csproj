@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <PropertyGroup>
+     <PublishSingleFile>true</PublishSingleFile>
+     <SelfContained>true</SelfContained>
+     <UseAppHost>true</UseAppHost>
+     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+     <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+     <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+     <PublishTrimmed>false</PublishTrimmed>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PlantGateway.Presentation.WebApp.Client\PlantGateway.Presentation.WebApp.Client.csproj" />
+    <PackageReference Include="DevExpress.Blazor" Version="24.2.12" />
+    <PackageReference Include="DevExpress.Blazor.Resources" Version="24.2.12" />
+    <PackageReference Include="DevExpress.Blazor.Themes" Version="24.2.12" />
+    <PackageReference Include="DevExpress.Blazor.Viewer" Version="24.2.12" />
+    <PackageReference Include="Markdig" Version="0.44.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.22" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.22" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="8.0.4" />
+    <PackageReference Include="Serilog.Sinks.BrowserConsole" Version="8.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\docs\01-getting-started\getting-started.md" />
+    <None Include="wwwroot\docs\02-fundamentals\fundamentals.md" />
+    <None Include="wwwroot\docs\03-release-notes\release-notes.md" />
+    <None Include="wwwroot\docs\04-user-guide\user-guide.md" />
+    <None Include="wwwroot\docs\05-admin-guide\admin-guide.md" />
+    <None Include="wwwroot\docs\06-developer-guide\developer-guide.md" />
+    <None Include="wwwroot\docs\07-tutorials\tutorials.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Features\Dashboard\Models\" />
+    <Folder Include="Features\Dashboard\Services\" />
+    <Folder Include="Features\Diagnostic\Components\DiagOverview\" />
+    <Folder Include="Features\Diagnostic\Components\DiagHistory\" />
+    <Folder Include="Features\Diagnostic\Components\DiagViewer\SummaryCards\" />
+    <Folder Include="Features\Diagnostic\Components\LogViewer\" />
+    <Folder Include="Features\Diagnostic\Components\NewFolder\" />
+    <Folder Include="Features\Docs\Models\" />
+    <Folder Include="Features\Models\Models\" />
+    <Folder Include="Features\Models\Services\" />
+    <Folder Include="Features\Projects\Models\" />
+    <Folder Include="Features\Projects\Services\" />
+    <Folder Include="Features\Publish\Components\" />
+    <Folder Include="Features\Publish\Models\" />
+    <Folder Include="Features\Publish\Services\" />
+    <Folder Include="wwwroot\docs\04-user-guide\2\Connectors\4\" />
+    <Folder Include="wwwroot\docs\05-admin-guide\02_setup-and-configuration\04_deployment\" />
+    <Folder Include="wwwroot\docs\05-admin-guide\01_overview\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\css\app.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Update="..\PlantGateway.Presentation.WebApp.Client\PlantGateway.Presentation.WebApp.Client.csproj">
+      <SelfContained>false</SelfContained>
+      <PublishSingleFile>false</PublishSingleFile>
+      <UseAppHost>false</UseAppHost>
+      <RuntimeIdentifier></RuntimeIdentifier>
+    </ProjectReference>
+  </ItemGroup>
+
+
+</Project>

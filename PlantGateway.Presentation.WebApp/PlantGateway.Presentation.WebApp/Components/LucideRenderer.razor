@@ -1,0 +1,16 @@
+﻿@inject IJSRuntime JS
+
+@code {
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        try
+        {
+            await JS.InvokeVoidAsync("Blazor.LucideAfterRender");
+        }
+        catch (Exception ex)
+        {
+            Console.Error.WriteLine("[LucideRenderer] " + ex);
+        }
+    }
+}

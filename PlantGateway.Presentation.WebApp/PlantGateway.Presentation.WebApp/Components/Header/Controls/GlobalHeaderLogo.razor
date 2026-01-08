@@ -1,0 +1,48 @@
+﻿@* /Shared/Header/Controls/GlobalHeaderLogo.razor *@
+@implements IDisposable
+
+<a href="@GetLogoTarget()" class="pg-logo">
+    <img src="png/pg-logo.png"
+         alt="@AltText"
+         class="pg-logo-image" />
+    <span class="pg-logo-text">@AppName</span>
+</a>
+
+@code {
+    [Parameter] public string AppName { get; set; } = "Plant Gateway";
+    [Parameter] public string AltText { get; set; } = "SMS group GmbH | Plant Gateway";
+    [Parameter] public LayoutContextId CurrentContext { get; set; }
+    [Inject] NavigationManager NavManager { get; set; } = default!;
+    [Inject] ILayoutContextProvider LayoutContextProvider { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        LayoutContextProvider.OnChanged += HandleContextChanged;
+    }
+
+    private void HandleContextChanged(LayoutContextId id)
+    {
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        LayoutContextProvider.OnChanged -= HandleContextChanged;
+    }
+
+
+    private string GetLogoTarget()
+    {
+		Log.Debug("GlobalHeaderLogo: Getting logo target for context {Context}", CurrentContext);
+
+        return CurrentContext switch
+        {
+            LayoutContextId.Main => "/",
+            LayoutContextId.Admin => "/admin",
+            LayoutContextId.Viewer => "/viewer",
+            LayoutContextId.Docs => "/docs",
+            LayoutContextId.Landing => "/landing",
+            _ => "/"
+        };
+    }
+}

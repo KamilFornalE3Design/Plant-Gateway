@@ -1,0 +1,19 @@
+﻿/* HEADER CONTEXT SELECTOR */
+.pg-context {
+    width: 240px; /* as requested */
+    padding: 6px 14px;
+    border-radius: 999px; /* pill shape */
+    border: 1px solid #d0d0d0;
+    background-color: #f8f8f8;
+    font-size: 13px;
+    line-height: 1.3;
+    outline: none;
+    appearance: none; /* hide default arrow (optional) */
+    background-image: none; /* you can later add custom arrow */
+}
+
+    .pg-context:focus {
+        border-color: #4b9cff;
+        box-shadow: 0 0 0 2px rgba(75, 156, 255, 0.25);
+        background-color: #ffffff;
+    }

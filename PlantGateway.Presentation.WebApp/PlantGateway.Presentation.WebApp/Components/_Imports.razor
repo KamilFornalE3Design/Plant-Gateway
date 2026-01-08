@@ -1,0 +1,81 @@
+﻿@using System.Net.Http
+@using System.Net.Http.Json
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.Web
+@using static Microsoft.AspNetCore.Components.Web.RenderMode
+@using Microsoft.AspNetCore.Components.Web.Virtualization
+@using Microsoft.JSInterop
+
+@using Serilog
+
+@inject IPlantGatewayDialogService Dialog
+
+@using PlantGateway.Presentation.WebApp
+
+@using PlantGateway.Presentation.WebApp.Components
+@using PlantGateway.Presentation.WebApp.Components.Layout
+@using PlantGateway.Presentation.WebApp.Components.NaviSideBar
+@using PlantGateway.Presentation.WebApp.Components.NaviSideBar.Controls
+@using PlantGateway.Presentation.WebApp.Components.Header
+@using PlantGateway.Presentation.WebApp.Components.Header.Controls
+@using PlantGateway.Presentation.WebApp.Components.Footer
+@using PlantGateway.Presentation.WebApp.Components.Footer.Controls
+@using PlantGateway.Presentation.WebApp.Components.Pages
+@using PlantGateway.Presentation.WebApp.Components.Pages.Admin
+@using PlantGateway.Presentation.WebApp.Components.Pages.Docs
+@using PlantGateway.Presentation.WebApp.Components.Viewers
+@using PlantGateway.Presentation.WebApp.Components.Viewers.StepViewer
+@using PlantGateway.Presentation.WebApp.Components.Dialogs
+
+@* Navigation *@
+@using PlantGateway.Presentation.WebApp.Navigation
+
+@* Configuration *@
+@using PlantGateway.Presentation.WebApp.Configuration
+@using PlantGateway.Presentation.WebApp.Configuration.Options
+@using PlantGateway.Presentation.WebApp.Configuration.Extensions
+
+@* Infrastructure *@
+@using PlantGateway.Presentation.WebApp.Infrastructure
+@using PlantGateway.Presentation.WebApp.Infrastructure.Layout
+
+@* Features *@
+@using PlantGateway.Presentation.WebApp.Features.Dashboard
+@using PlantGateway.Presentation.WebApp.Features.Dashboard.Components
+@using PlantGateway.Presentation.WebApp.Features.Data
+@using PlantGateway.Presentation.WebApp.Features.Data.Models
+@using PlantGateway.Presentation.WebApp.Features.Data.Services
+@using PlantGateway.Presentation.WebApp.Features.Data.Components
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic.Components
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic.Models
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic.Services
+@using PlantGateway.Presentation.WebApp.Features.Projects
+@using PlantGateway.Presentation.WebApp.Features.Projects.Components
+
+
+@* Abstractions *@
+@using PlantGateway.Presentation.WebApp.Application
+@using PlantGateway.Presentation.WebApp.Application.Abstractions
+@using PlantGateway.Presentation.WebApp.Application.Abstractions.Auth
+@using PlantGateway.Presentation.WebApp.Application.Abstractions.Help
+@using PlantGateway.Presentation.WebApp.Application.Abstractions.Layout
+@using PlantGateway.Presentation.WebApp.Application.Abstractions.Navigation
+@using PlantGateway.Presentation.WebApp.Application.Abstractions.Search
+@using PlantGateway.Presentation.WebApp.Application.Contracts
+@using PlantGateway.Presentation.WebApp.Application.Contracts.Help
+@using PlantGateway.Presentation.WebApp.Application.Contracts.Layout
+@using PlantGateway.Presentation.WebApp.Application.Contracts.Search
+
+@* Services *@
+@using PlantGateway.Presentation.WebApp.Services
+@using PlantGateway.Presentation.WebApp.Services.UI
+
+
+@using Microsoft.AspNetCore.Components
+
+@using Microsoft.Extensions.DependencyInjection
+
+@using DevExpress.Blazor
+@using DevExpress.AspNetCore

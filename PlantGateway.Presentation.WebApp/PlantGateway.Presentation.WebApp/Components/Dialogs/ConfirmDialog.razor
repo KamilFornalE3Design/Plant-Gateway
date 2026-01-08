@@ -1,0 +1,17 @@
+﻿<div class="pg-dialog">
+    <h3>@Title</h3>
+    <p>@Content</p>
+
+    <div class="pg-dialog-buttons">
+        <button class="pg-dialog-btn" @onclick="() => Return(true)">Yes</button>
+        <button class="pg-dialog-btn" @onclick="() => Return(false)">No</button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string Content { get; set; } = "";
+    [Parameter] public EventCallback<bool> OnResult { get; set; }
+
+    private async Task Return(bool value) => await OnResult.InvokeAsync(value);
+}

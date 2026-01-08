@@ -1,0 +1,89 @@
+﻿@using PlantGateway.Presentation.WebApp.Services.UI
+@inject IPlantGatewayDialogService DialogService
+
+@if (ActiveDialog is not null)
+{
+    <div class="pg-dialog-overlay">
+        <div class="pg-dialog-window">
+
+            <h3>@ActiveDialog.Title</h3>
+            <p>@ActiveDialog.Message</p>
+
+            @if (ActiveDialog.Type == DialogType.MessageBox)
+            {
+                <button @onclick="() => CloseAsync(true)">OK</button>
+            }
+            else if (ActiveDialog.Type == DialogType.Confirm)
+            {
+                <button @onclick="() => CloseAsync(true)">OK</button>
+                <button @onclick="() => CloseAsync(false)">Cancel</button>
+            }
+            else if (ActiveDialog.Type == DialogType.Prompt)
+            {
+                <input @bind="InputValue" class="pg-dialog-input" />
+                <br />
+                <button @onclick="() => CloseAsync(true)">OK</button>
+                <button @onclick="() => CloseAsync(false)">Cancel</button>
+            }
+        </div>
+    </div>
+}
+
+@code {
+
+    // --- STATE MODEL ---
+    private DialogRequest? ActiveDialog;
+    private TaskCompletionSource<object?>? _tcs;
+
+    private string? InputValue;
+
+    protected override void OnInitialized()
+    {
+        // IMPORTANT: register host
+        if (DialogService is PlantGatewayDialogService svc)
+            svc.RegisterHost(this);
+    }
+
+    // --- PUBLIC API called by the dialog service ---
+    public Task ShowMessageBox(string title, string message)
+        => ShowInternal(DialogType.MessageBox, title, message);
+
+    public Task<bool> ShowConfirm(string title, string message)
+        => ShowInternal(DialogType.Confirm, title, message)
+            .ContinueWith(t => t.Result is bool b && b);
+
+    public Task<string?> ShowPrompt(string title, string message)
+        => ShowInternal(DialogType.Prompt, title, message)
+            .ContinueWith(t => t.Result as string);
+
+    // CORE LOGIC
+    private Task<object?> ShowInternal(DialogType type, string title, string message)
+    {
+        ActiveDialog = new DialogRequest(type, title, message);
+        InputValue = "";
+        _tcs = new TaskCompletionSource<object?>();
+
+        StateHasChanged(); // refresh UI
+        return _tcs.Task;
+    }
+
+    private Task CloseAsync(object? result)
+    {
+        _tcs?.SetResult(result);
+        ActiveDialog = null;
+        InputValue = null;
+
+        StateHasChanged();
+        return Task.CompletedTask;
+    }
+
+    // --- MODEL ---
+    private record DialogRequest(DialogType Type, string Title, string Message);
+
+    private enum DialogType
+    {
+        MessageBox,
+        Confirm,
+        Prompt
+    }
+}

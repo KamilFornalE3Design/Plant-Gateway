@@ -1,0 +1,52 @@
+﻿/*#region PG DOCS LAYOUT THEME
+   Visual theme for the Docs layout:
+   - light, AVEVA-like reading surface
+   - airy content
+   - subtle dividers
+*/
+
+.pg-layout-docs {
+    /* Hook for docs-wide tweaks if needed */
+}
+
+/* Docs sidebar (left column) */
+.pg-sidebar-docs {
+    background-color: #f9fafb; /* Very light gray sidebar */
+    color: #111827; /* Primary text */
+    border-right-color: #e5e7eb; /* Soft divider */
+}
+
+/* Docs main content column */
+.pg-content-docs {
+    background-color: #ffffff; /* White content surface */
+    color: #111827;
+}
+
+/* Page-level header inside docs content
+   (will host breadcrumbs, title, meta) */
+.pg-content-header-docs {
+    background-color: #ffffff;
+    border-bottom-color: #e5e7eb;
+}
+
+/* Scrollable body area (reading zone) */
+.pg-content-body-docs {
+    background-color: #ffffff;
+    color: #111827;
+    /* Optional: narrow reading width for article-like feel */
+    display: flex;
+    justify-content: center;
+}
+
+    .pg-content-body-docs > * {
+        max-width: 960px; /* Constrain doc width */
+        width: 100%;
+    }
+
+/* Page-level footer (feedback etc.) */
+.pg-content-footer-docs {
+    background-color: #ffffff;
+    border-top-color: #e5e7eb;
+}
+
+/*#endregion */

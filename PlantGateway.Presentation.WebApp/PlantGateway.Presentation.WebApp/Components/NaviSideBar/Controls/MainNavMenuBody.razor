@@ -1,0 +1,59 @@
+﻿<nav class="pg-sidebar-nav-body pg-sidebar-nav-body-main">
+    <div class="pg-sidebar-nav-sections">
+        @foreach (var navSection in MainNavigation.Sections)
+        {
+            <section class="pg-sidebar-nav-section">
+                <button type="button"
+                        class="pg-sidebar-nav-section-header"
+                        @onclick="@(() => ToggleSection(navSection.Title))">
+                    <span class="pg-sidebar-nav-section-title">@navSection.Title</span>
+                    <i data-lucide="@GetChevronIcon(navSection.Title)"></i>
+                </button>
+
+                @if (IsExpanded(navSection.Title))
+                {
+                    <ul class="pg-sidebar-nav-items">
+                        @foreach (var item in navSection.Items)
+                        {
+                            <li>
+                                <NavLink href="@item.Url"
+                                         Match="NavLinkMatch.Prefix"
+                                         class="pg-sidebar-nav-item"
+                                         ActiveClass="pg-sidebar-nav-item-active">
+                                    @item.Text
+                                </NavLink>
+                            </li>
+                        }
+                    </ul>
+                }
+            </section>
+        }
+    </div>
+</nav>
+
+@code {
+    private readonly HashSet<string> _expandedSections =
+        new(StringComparer.OrdinalIgnoreCase);
+
+
+    protected override void OnInitialized()
+    {
+        // Optionally expand the first section by default
+        // var first = MainNavigation.Sections.FirstOrDefault();
+        // if (first is not null)
+        // {
+        //     _expandedSections.Add(first.Title);
+        // }
+    }
+
+    private void ToggleSection(string title)
+    {
+        if (!_expandedSections.Add(title))
+            _expandedSections.Remove(title);
+    }
+
+    private bool IsExpanded(string title) => _expandedSections.Contains(title);
+
+    private string GetChevronIcon(string title)
+        => IsExpanded(title) ? "chevron-down" : "chevron-right";
+}

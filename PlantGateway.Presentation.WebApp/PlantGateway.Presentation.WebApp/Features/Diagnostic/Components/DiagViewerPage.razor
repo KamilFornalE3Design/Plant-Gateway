@@ -1,0 +1,436 @@
+﻿@page "/diagnostics/viewer"
+
+@using System.Linq
+@using DevExpress.Blazor
+@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.AspNetCore.Components.Forms
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic.Models
+@using PlantGateway.Presentation.WebApp.Features.Diagnostic.Services
+
+@inject DiagnosticsUiService Diagnostics
+
+<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+    <div class="d-flex align-items-center gap-2">
+        <!-- This LABEL looks and behaves like a button -->
+        <label class="btn btn-sm btn-primary mb-0">
+            Load JSON…
+            <InputFile OnChange="OnFileSelected"
+                       accept=".json"
+                       style="display:none" />
+        </label>
+
+        @if (_vm?.Summary is not null)
+        {
+            <span class="text-muted small">
+                Loaded: @_vm.Summary.FileName
+            </span>
+        }
+    </div>
+
+    @if (_currentView == DiagnosticView.Messages)
+    {
+        <DxButton RenderStyle="ButtonRenderStyle.Link"
+                  Size="Size.Small"
+                  Click="ClearMessagesFilter">
+            Clear filters
+        </DxButton>
+    }
+</div>
+
+
+<div class="pg-diagnostics">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h3 class="mb-0">Diagnostics</h3>
+            @if (_vm?.Summary is not null)
+            {
+                <small class="text-muted">
+                    @_vm.Summary.FileName
+                </small>
+            }
+        </div>
+
+        <!-- View selector -->
+        <div class="btn-group btn-group-sm">
+            <button type="button"
+                    class="@GetViewButtonCss(DiagnosticView.Messages)"
+                    @onclick="@(() => SetView(DiagnosticView.Messages))">
+                Messages
+            </button>
+            <button type="button"
+                    class="@GetViewButtonCss(DiagnosticView.Engines)"
+                    @onclick="@(() => SetView(DiagnosticView.Engines))">
+                Engines
+            </button>
+        </div>
+    </div>
+
+    @if (_isLoading)
+    {
+        <p><em>Loading diagnostics…</em></p>
+    }
+    else if (_vm is null || _vm.Summary is null)
+    {
+        <div class="alert alert-info">
+            No diagnostic loaded. Use the <strong>Open JSON…</strong> button to select a diagnostic file.
+        </div>
+    }
+    else
+    {
+        <!-- ───────────── Level 0: Run summary cards ───────────── -->
+        <div class="row gy-2 mb-4">
+            <!-- Status card -->
+            <div class="col-md-3">
+                <div class="card border-@(_vm.Summary.IsSuccess ? "success" : "danger")">
+                    <div class="card-body">
+                        <h6 class="card-title">Status</h6>
+                        <p class="card-text mb-2">
+                            @if (_vm.Summary.IsSuccess)
+                            {
+                                <span class="badge bg-success">Success</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Failed</span>
+                            }
+                        </p>
+                        <p class="card-text mb-0">
+                            <small class="text-muted">
+                                Valid: @(_vm.Summary.IsValid ? "Yes" : "No")<br />
+                                Warnings: @_vm.Summary.WarningCount<br />
+                                Errors: @_vm.Summary.ErrorCount
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- File card -->
+            <div class="col-md-3">
+                <div class="card border-info">
+                    <div class="card-body">
+                        <h6 class="card-title">File</h6>
+                        <p class="card-text mb-1">
+                            @_vm.Summary.FileName
+                        </p>
+                        <small class="text-muted">
+                            Messages: @_vm.Summary.MessageCount
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality card -->
+            <div class="col-md-3">
+                <div class="card border-primary">
+                    <div class="card-body">
+                        <h6 class="card-title">Quality</h6>
+                        <p class="card-text mb-1">
+                            Total: @_vm.Summary.TotalScore:F2
+                        </p>
+                        <small class="text-muted">
+                            Syntax: @_vm.Summary.SyntaxScore:F2 ·
+                            Semantic: @_vm.Summary.SemanticScore:F2
+                        </small><br />
+                        <small class="text-muted">
+                            Completeness: @_vm.Summary.CompletenessScore:F2 ·
+                            Normalization: @_vm.Summary.NormalizationScore:F2
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nodes card -->
+            <div class="col-md-3">
+                <div class="card border-warning">
+                    <div class="card-body">
+                        <h6 class="card-title">Nodes</h6>
+                        <p class="card-text mb-1">
+                            Total nodes: @_vm.Summary.TotalNodeCount
+                        </p>
+                        <small class="text-muted">
+                            Part nodes: @_vm.Summary.TotalPartNodeCount
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ───────────── Toolbar: file + filters + view selector ───────────── -->
+        <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <label class="btn btn-sm btn-outline-primary mb-0">
+                    Open JSON…
+                    <InputFile OnChange="OnFileSelected"
+                               accept=".json"
+                               style="display:none" />
+                </label>
+                @if (_vm?.Summary is not null)
+                {
+                    <span class="text-muted small">
+                        Loaded: @_vm.Summary.FileName
+                    </span>
+                }
+            </div>
+
+            @if (_currentView == DiagnosticView.Messages)
+            {
+                <div class="d-flex align-items-center gap-2">
+                    <DxButton RenderStyle="ButtonRenderStyle.Link"
+                              Size="Size.Small"
+                              Click="ClearMessagesFilter">
+                        Clear filters
+                    </DxButton>
+                </div>
+            }
+        </div>
+
+        <!-- ───────────── Main view area ───────────── -->
+        @switch (_currentView)
+        {
+            case DiagnosticView.Messages:
+                <div>
+                    <h4 class="mb-2">Messages</h4>
+
+                    @if (_vm.Messages is null || !_vm.Messages.Any())
+                    {
+                        <p class="text-muted">No warnings or errors recorded.</p>
+                    }
+                    else
+                    {
+                        <DxGrid ShowSearchBox="true"
+                                Data="@_vm.Messages"
+                                @ref="_messagesGrid"
+                                ShowFilterRow="true"
+                                ShowGroupPanel="true"
+                                TextWrapEnabled="false"
+                                PagerNavigationMode="PagerNavigationMode.InputBox"
+                                PageSize="20">
+                            <Columns>
+                                <DxGridDataColumn FieldName="DtoName"
+                                                  Caption="DTO"
+                                                  MinWidth="220" />
+
+                                <DxGridDataColumn FieldName="Engine"
+                                                  Caption="Engine"
+                                                  Width="220px" />
+
+                                <DxGridDataColumn FieldName="Severity"
+                                                  Caption="Severity"
+                                                  Width="120px">
+                                    <CellDisplayTemplate>
+                                        @{
+                                            var msg = (DiagnosticMessage)context.DataItem;
+                                            var severity = msg.Severity?.ToLowerInvariant();
+                                            var (css, text) = severity switch
+                                            {
+                                                "warning" => ("warning", "WARNING"),
+                                                "error" => ("danger", "ERROR"),
+                                                "info" => ("secondary", "INFO"),
+                                                _ => ("secondary", msg.Severity?.ToUpperInvariant() ?? "")
+                                            };
+                                        }
+                                        <span class="badge bg-@css px-3">@text</span>
+                                    </CellDisplayTemplate>
+                                </DxGridDataColumn>
+
+                                <DxGridDataColumn FieldName="Message"
+                                                  Caption="Message"
+                                                  MinWidth="360" />
+
+                                <DxGridDataColumn FieldName="Link"
+                                                  Caption="Link"
+                                                  Width="120px">
+                                    <CellDisplayTemplate>
+                                        @{
+                                            var msg = (DiagnosticMessage)context.DataItem;
+                                        }
+                                        @if (!string.IsNullOrWhiteSpace(msg.Link))
+                                        {
+                                            <a href="@msg.Link" target="_blank">Open</a>
+                                        }
+                                    </CellDisplayTemplate>
+                                </DxGridDataColumn>
+                            </Columns>
+
+                            <TotalSummary>
+                                <DxGridSummaryItem FieldName="DtoName"
+                                                   SummaryType="GridSummaryItemType.Count"
+                                                   FooterColumnName="DtoName" />
+                            </TotalSummary>
+                        </DxGrid>
+                    }
+                </div>
+                break;
+
+            case DiagnosticView.Engines:
+                <div>
+                    <h4 class="mb-2">Engine Matrix</h4>
+
+                    @if (_vm.MatrixRows is null || !_vm.MatrixRows.Any() || !_vm.EngineSummaries.Any())
+                    {
+                        <p class="text-muted">
+                            No engine coverage data available in this diagnostic file.
+                        </p>
+                    }
+                    else
+                    {
+                        <DxGrid Data="@_vm.MatrixRows"
+                                ShowSearchBox="true"
+                                ShowFilterRow="true"
+                                UnboundColumnData="OnMatrixCustomUnboundColumnData">
+                            <Columns>
+                                <DxGridDataColumn FieldName="DtoName"
+                                                  Caption="DTO"
+                                                  MinWidth="220" />
+
+                                @foreach (var eng in _vm.EngineSummaries)
+                                {
+                                    <DxGridDataColumn FieldName="@eng.Name"
+                                                      Caption="@eng.Name"
+                                                      UnboundType="GridUnboundColumnType.String"
+                                                      Width="90px">
+                                        <CellDisplayTemplate>
+                                            @{
+                                                var value = context.Value?.ToString() ?? string.Empty;
+                                                EngineCellStatus status = value.ToUpperInvariant() switch
+                                                {
+                                                    "OK" => EngineCellStatus.Ok,
+                                                    "WARN" => EngineCellStatus.Warning,
+                                                    "ERR" => EngineCellStatus.Error,
+                                                    "MISS" => EngineCellStatus.Missing,
+                                                    _ => EngineCellStatus.Unknown
+                                                };
+                                            }
+                                            @RenderEngineStatusBadge(status)
+                                        </CellDisplayTemplate>
+                                    </DxGridDataColumn>
+                                }
+                            </Columns>
+                        </DxGrid>
+                    }
+                </div>
+                break;
+
+        }
+    }
+</div>
+
+@code {
+    private DiagnosticsViewModel? _vm;
+    private DxGrid? _messagesGrid;
+    private bool _isLoading;
+
+    private DiagnosticView _currentView = DiagnosticView.Messages;
+
+    // TEMP: fixed file; later you'll pass real path from launcher/CLI or upload.
+    private const string SampleFileName = "ProjectStructureDTO-6dfaf0f3.json";
+
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Optionally remove auto-load here if you want *only* manual loading.
+        // _isLoading = true;
+        // try
+        // {
+        //     _vm = await Diagnostics.LoadAsync("ProjectStructureDTO-6dfaf0f3.json");
+        // }
+        // finally
+        // {
+        //     _isLoading = false;
+        // }
+    }
+
+    private async Task OnFileSelected(InputFileChangeEventArgs e)
+    {
+        var file = e.File;
+        if (file is null)
+            return;
+
+        _isLoading = true;
+        try
+        {
+            // Read and parse the JSON directly from the uploaded file
+            await using var stream = file.OpenReadStream(long.MaxValue);
+            _vm = await Diagnostics.LoadFromStreamAsync(stream, file.Name);
+
+            // After loading a new file, default to Messages view
+            _currentView = DiagnosticView.Messages;
+        }
+        finally
+        {
+            _isLoading = false;
+            StateHasChanged();
+        }
+    }
+    private void ClearMessagesFilter()
+    {
+        _messagesGrid?.ClearFilter();
+    }
+
+    private enum DiagnosticView
+    {
+        Messages,
+        Engines
+    }
+
+    private void SetView(DiagnosticView view)
+    {
+        _currentView = view;
+    }
+
+    private string GetViewButtonCss(DiagnosticView view)
+    {
+        var isActive = _currentView == view;
+        return "btn " + (isActive ? "btn-primary" : "btn-outline-secondary");
+    }
+
+    private void OnMatrixCustomUnboundColumnData(GridUnboundColumnDataEventArgs e)
+    {
+        if (e.DataItem is not EngineMatrixRow row)
+            return;
+
+        // DtoName is a normal bound property, not unbound
+        if (string.Equals(e.FieldName,
+                          nameof(EngineMatrixRow.DtoName),
+                          StringComparison.OrdinalIgnoreCase))
+            return;
+
+        // e.FieldName == column FieldName (engine name)
+        if (row.Engines.TryGetValue(e.FieldName, out var status))
+        {
+            e.Value = status switch
+            {
+                EngineCellStatus.Ok => "OK",
+                EngineCellStatus.Warning => "WARN",
+                EngineCellStatus.Error => "ERR",
+                EngineCellStatus.Missing => "MISS",
+                _ => "?"
+            };
+        }
+        else
+        {
+            e.Value = "MISS";
+        }
+    }
+
+
+    private RenderFragment RenderEngineStatusBadge(EngineCellStatus status) => builder =>
+    {
+        var (css, text) = status switch
+        {
+            EngineCellStatus.Ok => ("success", "OK"),
+            EngineCellStatus.Warning => ("warning", "WARN"),
+            EngineCellStatus.Error => ("danger", "ERR"),
+            EngineCellStatus.Missing => ("secondary", "—"),
+            _ => ("secondary", "?")
+        };
+
+        builder.OpenElement(0, "span");
+        builder.AddAttribute(1, "class", $"badge bg-{css}");
+        builder.AddContent(2, text);
+        builder.CloseElement();
+    };
+}

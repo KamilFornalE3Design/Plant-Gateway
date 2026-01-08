@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <base href="/" />
+
+        <!-- DevExpress Blazor theme -->
+        <link rel="stylesheet" href="_content/DevExpress.Blazor.Themes/bootstrap-external.bs5.css" />
+
+        <link rel="stylesheet" href="/css/app.css?pgv=@ClientVersion" />
+        <link rel="stylesheet" href="PlantGateway.Presentation.WebApp.styles.css?pgv=@ClientVersion" />
+
+    <HeadContent>
+    </HeadContent>
+
+    <HeadOutlet />
+</head>
+<body>
+    @using Microsoft.AspNetCore.Components.Authorization
+    @inject IJSRuntime JS
+    @code {
+        // This runs after EVERY UI render.
+        // Lucide must re-scan the DOM and replace <i data-lucide="...">
+        // because Blazor re-renders HTML dynamically.
+        protected override async Task OnAfterRenderAsync(bool firstRender)
+        {
+            if (!firstRender) return;
+
+            try
+            {
+                await JS.InvokeVoidAsync("pgLucide.init");
+                Console.WriteLine("App hydrated");
+            }
+            catch (JSException ex)
+            {
+                Console.WriteLine($"pgLucide.init failed: {ex.Message}");
+            }
+        }
+
+
+        // This is what you’ll use in links/scripts
+        private string ClientVersion => VersionProvider.ClientVersion;
+    }
+
+    <GlobalHeaderBar LayoutContext="LayoutContextId.Main" />
+
+    <CascadingAuthenticationState>
+        <Routes @rendermode="CustomRenderModes.InteractiveServerRenderModeNoPreRender" />
+    </CascadingAuthenticationState>
+
+    <DialogHost />
+
+    <script src="_framework/blazor.web.js"></script>
+    <script src="https://unpkg.com/lucide@0.554.0/dist/umd/lucide.min.js"></script>
+    <script src="js/lucide-init.js?pgv=@ClientVersion"></script>
+</body>
+</html>

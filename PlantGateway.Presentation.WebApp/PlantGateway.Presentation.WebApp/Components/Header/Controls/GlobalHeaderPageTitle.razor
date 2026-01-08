@@ -1,0 +1,9 @@
+﻿@* /Shared/Header/Controls/GlobalHeaderPageTitle.razor *@
+@if (!string.IsNullOrWhiteSpace(Title))
+{
+    <h2 class="pg-title">@Title</h2>
+}
+
+@code {
+    [Parameter] public string? Title { get; set; }
+}

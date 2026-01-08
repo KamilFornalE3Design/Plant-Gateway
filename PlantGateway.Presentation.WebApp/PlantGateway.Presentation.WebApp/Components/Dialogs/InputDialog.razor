@@ -1,0 +1,22 @@
+﻿<div class="pg-dialog">
+    <h3>@Title</h3>
+    <p>@Content</p>
+
+    <input class="pg-dialog-input" @bind="_value" />
+
+    <div class="pg-dialog-buttons">
+        <button class="pg-dialog-btn" @onclick="() => Submit()">OK</button>
+        <button class="pg-dialog-btn" @onclick="() => Cancel()">Cancel</button>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = "";
+    [Parameter] public string Content { get; set; } = "";
+    [Parameter] public EventCallback<string?> OnResult { get; set; }
+
+    private string? _value;
+
+    private async Task Submit() => await OnResult.InvokeAsync(_value);
+    private async Task Cancel() => await OnResult.InvokeAsync(null);
+}

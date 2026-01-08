@@ -1,0 +1,74 @@
+﻿/*#region PG DOCS SIDEBAR NAV THEME
+   Visual theme for DocsNavMenu:
+   - light, airy
+   - more spacing between items
+   - gentle blue accent for active link
+*/
+
+/* Root of the docs nav menu */
+.pg-sidebar-nav-docs {
+    font-size: 13px;
+    color: #111827;
+}
+
+/* Header (icon row) */
+.pg-sidebar-nav-header-docs {
+    background-color: #f9fafb;
+    border-bottom-color: #e5e7eb;
+}
+
+/* Body area with sections */
+.pg-sidebar-nav-body-docs {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* Footer area (info / version etc.) */
+.pg-sidebar-nav-footer-docs {
+    background-color: #f9fafb;
+    border-top-color: #e5e7eb;
+}
+
+/* Increase spacing between sections */
+.pg-sidebar-nav-docs .pg-sidebar-nav-sections {
+    gap: 8px; /* More vertical space between sections */
+}
+
+/* Section header hover effect */
+.pg-sidebar-nav-docs .pg-sidebar-nav-section-header {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+    .pg-sidebar-nav-docs .pg-sidebar-nav-section-header:hover {
+        background-color: #f3f4f6; /* Very light gray on hover */
+    }
+
+/* List of items: extra spacing */
+.pg-sidebar-nav-docs .pg-sidebar-nav-items {
+    padding-top: 4px;
+    padding-bottom: 6px;
+}
+
+/* Single navigation item (default) */
+.pg-sidebar-nav-docs .pg-sidebar-nav-item {
+    padding: 5px 20px; /* Slightly more padding */
+    color: #111827;
+}
+
+    /* Hover state */
+    .pg-sidebar-nav-docs .pg-sidebar-nav-item:hover {
+        background-color: #f3f4f6; /* Soft, neutral hover */
+    }
+
+    /* Active / selected item */
+    .pg-sidebar-nav-docs .pg-sidebar-nav-item-active,
+    .pg-sidebar-nav-docs .pg-sidebar-nav-item.active {
+        font-weight: 600;
+        background-color: #e0f2fe; /* Very light blue highlight */
+        color: #1d4ed8; /* Docs primary accent blue */
+        border-left: 3px solid #1d4ed8; /* Accent bar */
+        padding-left: 17px; /* Compensate for border */
+    }
+
+/*#endregion */

@@ -1,0 +1,28 @@
+﻿@page "/data/mappings"
+
+@using PlantGateway.Presentation.WebApp.Features.Data.Services
+
+<h3>Run PGED from the Browser</h3>
+
+@{
+    string file = @"C:\Users\e3des\Downloads\selule_cgl1_CI_dmu.xml";
+    string url = PgEdgeProtocolBuilder.BuildForMcad(file);
+}
+
+<a href="@url" class="pg-btn-primary">
+    🚀 Launch MCAD conversion
+</a>
+
+<br />
+<br />
+
+<h4>Raw Command Test</h4>
+
+@{
+    string raw = "pgedge convert mcad -f \"C:\\file.xml\" --mode dump";
+    string rawUrl = PgEdgeProtocolBuilder.BuildCommandUrl(raw);
+}
+
+<a href="@rawUrl" class="pg-btn-secondary">
+    🔎 Test Raw Command
+</a>

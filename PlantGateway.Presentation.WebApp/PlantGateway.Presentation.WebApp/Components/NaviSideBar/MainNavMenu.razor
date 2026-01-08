@@ -1,0 +1,36 @@
+﻿<div class="pg-sidebar-nav">
+    <MainNavMenuHeader @rendermode="CustomRenderModes.InteractiveServerRenderModeNoPreRender" />
+    <MainNavMenuBody @rendermode="CustomRenderModes.InteractiveServerRenderModeNoPreRender" />
+    <MainNavMenuFooter @rendermode="CustomRenderModes.InteractiveServerRenderModeNoPreRender" />
+</div>
+
+
+@code {
+    private string? _expandedSectionTitle;
+
+    protected override void OnInitialized()
+    {
+        // Start with the first section expanded so you clearly see it works
+        _expandedSectionTitle = MainNavigation.Sections.FirstOrDefault()?.Title;
+    }
+
+    private bool IsExpanded(string title) => _expandedSectionTitle == title;
+
+    private void ToggleSection(string title)
+    {
+        if (_expandedSectionTitle == title)
+        {
+            // collapse if same
+            _expandedSectionTitle = null;
+        }
+        else
+        {
+            // expand new one
+            _expandedSectionTitle = title;
+        }
+    }
+
+    private string GetChevronIcon(string title)
+        => IsExpanded(title) ? "chevron-down" : "chevron-right";
+}
+

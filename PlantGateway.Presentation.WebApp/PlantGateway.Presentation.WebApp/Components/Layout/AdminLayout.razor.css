@@ -1,0 +1,43 @@
+﻿/*#region PG ADMIN LAYOUT THEME
+   Visual theme for the Admin layout:
+   - dark navy shell
+   - slate content
+   - bright cyan / blue accent
+*/
+
+.pg-layout-admin {
+    /* Hook for admin-wide tweaks (shadows, etc.) */
+}
+
+/* Admin sidebar (left column) */
+.pg-sidebar-admin {
+    background-color: #0b1120; /* Deep navy */
+    color: #e5e7eb; /* Light text */
+    border-right-color: #1f2933; /* Dark divider */
+}
+
+/* Admin main content column */
+.pg-content-admin {
+    background-color: #0f172a; /* Dark slate background */
+    color: #e5e7eb; /* Light text */
+}
+
+/* Page-level header inside admin content */
+.pg-content-header-admin {
+    background-color: #020617; /* Even darker header strip */
+    border-bottom-color: #1f2937;
+}
+
+/* Scrollable body area */
+.pg-content-body-admin {
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+/* Page-level footer inside admin content */
+.pg-content-footer-admin {
+    background-color: #020617;
+    border-top-color: #1f2937;
+}
+
+/*#endregion */

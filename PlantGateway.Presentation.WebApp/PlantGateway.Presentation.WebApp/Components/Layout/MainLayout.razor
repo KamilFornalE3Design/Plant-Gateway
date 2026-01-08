@@ -1,0 +1,69 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Nav
+@inject IJSRuntime JS
+
+<div class="pg-layout pg-layout-main">
+
+    <!-- LEFT NAVIGATION -->
+    <aside class="pg-sidebar pg-sidebar-main">
+        <MainNavMenu />
+    </aside>
+
+
+    <!-- MAIN CONTENT COLUMN -->
+    <main class="pg-content pg-content-main">
+
+        <!-- PAGE-LEVEL HEADER (for buttons / info per content) -->
+        <header class="pg-content-header pg-content-header-main px-4">
+            <!-- Example content; can be replaced per page later -->
+            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        </header>
+
+        <!-- SCROLLABLE BODY -->
+        <section class="pg-content-body pg-content-body-main px-4">
+            @Body
+
+        </section>
+
+        <!-- PAGE-LEVEL FOOTER -->
+        <footer class="pg-content-footer pg-content-footer-main">
+            <FooterBar />
+        </footer>
+
+    </main>
+
+</div>
+
+<!-- This makes Lucide run after every layout render -->
+<LucideRenderer />
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    // OPTIONAL: Set from each page
+    [Parameter] public string PageTitle { get; set; } = "Dashboard";
+
+    // Example profile data
+    public string UserName => "John Smith";
+
+    public LayoutContextId CurrentLayoutContext { get; set; } = LayoutContextId.Main;
+
+    private void OnLayoutContextChanged(LayoutContextId newContext)
+    {
+        // NOT USED YET but REQUIRED to prevent the old context from overwriting the selection
+        // You can log or store if needed
+    }
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        // Always re-run lucide after render
+        try
+        {
+            await JS.InvokeVoidAsync("pgLucide.init");
+        }
+        catch { }
+    }
+}

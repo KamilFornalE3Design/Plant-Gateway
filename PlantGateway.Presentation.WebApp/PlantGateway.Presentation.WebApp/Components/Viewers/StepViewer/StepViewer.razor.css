@@ -1,0 +1,36 @@
+﻿.pg-stepviewer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #ddd;
+    background: #fafafa;
+}
+
+.pg-stepviewer-toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.pg-stepviewer-btn {
+    background: #006bb7;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    .pg-stepviewer-btn input[type="file"] {
+        display: none;
+    }
+
+.pg-stepviewer-canvas {
+    width: 100%;
+    height: calc(100% - 45px);
+    background: white;
+    display: block;
+}
