@@ -24,6 +24,7 @@ using Spectre.Console;
 using Spectre.Console.Cli;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
+using PlantGateway.Presentation.CLI.Notifications;
 
 namespace PlantGateway.Presentation.CLI
 {

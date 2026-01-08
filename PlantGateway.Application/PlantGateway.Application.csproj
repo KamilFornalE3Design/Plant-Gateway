@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Implementations\Configuration\" />
+    <Folder Include="Pipelines\Validator\Rules\Document\Txt\" />
   </ItemGroup>
 
 </Project>
