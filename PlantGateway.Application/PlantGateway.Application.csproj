@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\Configuration\Resolver\" />
     <Folder Include="Implementations\Configuration\" />
   </ItemGroup>
 

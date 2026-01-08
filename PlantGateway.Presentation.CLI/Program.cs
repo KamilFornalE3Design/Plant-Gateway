@@ -4,6 +4,9 @@ using Microsoft.Extensions.FileSystemGlobbing;
 using PlantGateway.Application.Abstractions.Configuration.Providers;
 using PlantGateway.Application.Abstractions.Configuration.Watchers;
 using PlantGateway.Core.Config.Legacy;
+using PlantGateway.Core.Config.Models.Contracts;
+using PlantGateway.Infrastructure.Implementations.Configuration.Resolvers;
+using PlantGateway.Infrastructure.Implementations.Logging;
 using PlantGateway.Presentation.CLI.Composition;
 using Serilog;
 using SMSgroup.Aveva.Application.CLI.PGedge.Bridge;
@@ -21,8 +24,6 @@ using Spectre.Console;
 using Spectre.Console.Cli;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
-using PlantGateway.Core.Config.Models.Contracts;
-using PlantGateway.Infrastructure.Implementations.Logging;
 
 namespace PlantGateway.Presentation.CLI
 {
@@ -145,7 +146,7 @@ namespace PlantGateway.Presentation.CLI
 
         private static IConfiguration BuildConfiguration()
         {
-            return ConfigHelper.Load(ConfigProvider.ResolveAppEnv(string.Empty));
+            return ConfigHelper.Load(AppEnvironmentResolver.ResolveAppEnv(string.Empty));
         }
         private static (ILogger userLogger, ILogger adminLogger) BuildLoggers(IConfiguration config)
         {

@@ -15,8 +15,4 @@
     <ProjectReference Include="..\PlantGateway.Core.Config\PlantGateway.Core.Config.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Implementations\Configuration\Resolvers\" />
-  </ItemGroup>
-
 </Project>
