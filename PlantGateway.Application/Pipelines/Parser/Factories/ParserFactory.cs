@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SMSgroup.Aveva.Config.Abstractions;
 using SMSgroup.Aveva.Config.Models.Contracts;
-using SMSgroup.Aveva.Utilities.Parser.Interfaces;
+using PlantGateway.Application.Pipelines.Parser.Interfaces;
 
 namespace PlantGateway.Application.Pipelines.Parser.Factories
 {

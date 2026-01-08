@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using SMSgroup.Aveva.Config.Abstractions;
 using SMSgroup.Aveva.Config.Models.Contracts;
-using SMSgroup.Aveva.Utilities.Parser.Interfaces;
-using SMSgroup.Aveva.Utilities.Validator.Interfaces;
+using PlantGateway.Application.Pipelines.Parser.Interfaces;
+using PlantGateway.Application.Pipelines.Validator.Interfaces;
 
 namespace PlantGateway.Application.Pipelines.Validator.Factories
 {

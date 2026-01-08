@@ -3,8 +3,8 @@ using SMSgroup.Aveva.Config.Data.IdentityCache;
 using SMSgroup.Aveva.Config.Models.Contracts;
 using SMSgroup.Aveva.Config.Models.DTO;
 using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Utilities.Walker.Interfaces;
-using SMSgroup.Aveva.Utilities.Walker.Strategies;
+using PlantGateway.Application.Pipelines.Walker.Interfaces;
+using PlantGateway.Application.Pipelines.Walker.Strategies;
 
 namespace PlantGateway.Application.Pipelines.Walker.Factory
 {

@@ -2,9 +2,9 @@
 using SMSgroup.Aveva.Config.Models.Contracts;
 using SMSgroup.Aveva.Config.Models.DTO;
 using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Utilities.Writer.Interfaces;
-using SMSgroup.Aveva.Utilities.Writer.Strategies.ProjectStructure;
-using SMSgroup.Aveva.Utilities.Writer.Strategies.TakeOverPoint;
+using PlantGateway.Application.Pipelines.Writer.Interfaces;
+using PlantGateway.Application.Pipelines.Writer.Strategies.ProjectStructure;
+using PlantGateway.Application.Pipelines.Writer.Strategies.TakeOverPoint;
 
 namespace PlantGateway.Application.Pipelines.Writer.Factory
 {

@@ -6,8 +6,8 @@ using SMSgroup.Aveva.Config.Models.Contracts;
 using SMSgroup.Aveva.Config.Models.DTO;
 using SMSgroup.Aveva.Config.Models.ExecutionResults.Walker;
 using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Utilities.Engines;
-using SMSgroup.Aveva.Utilities.Walker.Interfaces;
+using PlantGateway.Application.Pipelines.Engines;
+using PlantGateway.Application.Pipelines.Walker.Interfaces;
 
 namespace PlantGateway.Application.Pipelines.Walker.Strategies
 {

@@ -3,8 +3,8 @@ using SMSgroup.Aveva.Config.Models.Contracts;
 using SMSgroup.Aveva.Config.Models.DTO;
 using SMSgroup.Aveva.Config.Models.ExecutionResults.Walker;
 using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Utilities.Helpers;
-using SMSgroup.Aveva.Utilities.Walker.Interfaces;
+using PlantGateway.Application.Pipelines.Helpers;
+using PlantGateway.Application.Pipelines.Walker.Interfaces;
 using System.Xml;
 using System.Xml.Linq;
 
