@@ -12,8 +12,6 @@ using Serilog;
 using SMSgroup.Aveva.Application.CLI.PGedge.Bridge;
 using SMSgroup.Aveva.Application.CLI.PGedge.Command;
 using SMSgroup.Aveva.Application.CLI.PGedge.Connector.Commands;
-using SMSgroup.Aveva.Application.CLI.PGedge.Convert;
-using SMSgroup.Aveva.Application.CLI.PGedge.Environment;
 using SMSgroup.Aveva.Application.CLI.PGedge.Environment.Project;
 using SMSgroup.Aveva.Application.CLI.PGedge.Launch.Launcher;
 using SMSgroup.Aveva.Application.CLI.PGedge.Mapping;
@@ -25,6 +23,25 @@ using Spectre.Console.Cli;
 using System.IO.Pipes;
 using System.Runtime.InteropServices;
 using PlantGateway.Presentation.CLI.Notifications;
+using PlantGateway.Application.Pipelines.Execution.Parser.Factories;
+using PlantGateway.Application.Pipelines.Execution.Parser.Interfaces;
+using PlantGateway.Application.Pipelines.Execution.Parser.Strategies;
+using PlantGateway.Application.Pipelines.Execution.Planner.Factories;
+using PlantGateway.Application.Pipelines.Execution.Planner.Interfaces;
+using PlantGateway.Application.Pipelines.Execution.Planner.Strategies;
+using PlantGateway.Application.Pipelines.Execution.Validator.Factories;
+using PlantGateway.Application.Pipelines.Execution.Validator.Interfaces;
+using PlantGateway.Application.Pipelines.Execution.Validator.Strategies;
+using PlantGateway.Application.Pipelines.Execution.Walker.Factory;
+using PlantGateway.Application.Pipelines.Execution.Walker.Interfaces;
+using PlantGateway.Application.Pipelines.Execution.Processor.Factories;
+using PlantGateway.Application.Pipelines.Execution.Processor.Interfaces;
+using PlantGateway.Application.Pipelines.Execution.Validator.Rules.Elements;
+using PlantGateway.Application.Pipelines.Execution.Validator.Rules.Document.Xml;
+using PlantGateway.Presentation.CLI.Commands;
+using PlantGateway.Core.Config.Abstractions.Maps;
+using PlantGateway.Core.Config.Models.Maps;
+using PlantGateway.Core.Config.Implementations.Maps;
 
 namespace PlantGateway.Presentation.CLI
 {
@@ -237,7 +254,7 @@ namespace PlantGateway.Presentation.CLI
             var rawEnv = string.IsNullOrWhiteSpace(envArg) ? string.Empty : envArg.Split('=')[1];
 
             // Single resolver of truth: "" => (Debugger? dev : prod); else dev|stage|prod
-            var appEnv = ConfigProvider.ResolveAppEnv(rawEnv);
+            var appEnv = AppEnvironmentResolver.ResolveAppEnv(rawEnv);
 
             // Materialize snapshot for this run (file paths, etc.)
             var evars = cfgProvider.ResolveAppSettings(appEnv);
@@ -697,7 +714,7 @@ namespace PlantGateway.Presentation.CLI
             }
 
             // Update status board values from services
-            StatusBoard.Environment = ConfigProvider.ResolveAppEnv(string.Empty).ToString();
+            StatusBoard.Environment = AppEnvironmentResolver.ResolveAppEnv(string.Empty).ToString();
             StatusBoard.PipeBridge = "BridgeServer"; // or resolve from DI
             StatusBoard.ConfigWatcherOn = provider.GetService<IConfigWatcher>()?.IsRunning ?? false;
 

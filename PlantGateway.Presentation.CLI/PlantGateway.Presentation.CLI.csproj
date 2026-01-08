@@ -35,7 +35,10 @@
   <ItemGroup>
     <Folder Include="Rendering\Progress\" />
     <Folder Include="Rendering\Tables\" />
-    <Folder Include="Settings\" />
+    <Folder Include="Settings\PGedge\Bridge\" />
+    <Folder Include="Settings\PGedge\Command\" />
+    <Folder Include="Settings\PGedge\Launch\" />
+    <Folder Include="Settings\PGedge\Session\" />
   </ItemGroup>
 
   <ItemGroup>

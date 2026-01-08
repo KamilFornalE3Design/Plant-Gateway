@@ -1,5 +1,5 @@
 ﻿using SMSgroup.Aveva.Config.Abstractions;
-using SMSgroup.Aveva.Config.Models.PlannerBlocks.Position;
+using PlantGateway.Core.Config.Models.PlannerBlocks;
 using System;
 using System.Collections.Generic;
 

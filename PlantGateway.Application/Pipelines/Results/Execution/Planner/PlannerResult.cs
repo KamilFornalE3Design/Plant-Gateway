@@ -1,4 +1,4 @@
-﻿using SMSgroup.Aveva.Config.Models.PlannerBlocks.Position;
+﻿using PlantGateway.Core.Config.Models.PlannerBlocks;
 using SMSgroup.Aveva.Config.Models.ValueObjects;
 using System;
 using System.Collections.Generic;

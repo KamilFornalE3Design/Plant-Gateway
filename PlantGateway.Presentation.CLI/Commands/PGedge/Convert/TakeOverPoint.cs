@@ -9,7 +9,7 @@ using SMSgroup.Aveva.Utilities.Pipeline;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
-namespace SMSgroup.Aveva.Application.CLI.PGedge.Convert
+namespace PlantGateway.Presentation.CLI.Commands
 {
     public class TakeOverPoint : Command<ConvertSettings>
     {

@@ -10,7 +10,7 @@ using Spectre.Console;
 using Spectre.Console.Cli;
 using System.Diagnostics.Contracts;
 
-namespace SMSgroup.Aveva.Application.CLI.PGedge.Convert
+namespace PlantGateway.Presentation.CLI.Commands
 {
     public class ProjectStructure : Command<ConvertSettings>
     {

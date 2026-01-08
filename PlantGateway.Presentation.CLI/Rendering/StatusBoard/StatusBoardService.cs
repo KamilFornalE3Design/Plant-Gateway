@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using PlantGateway.Application.Abstractions.Configuration.Watchers;
+using PlantGateway.Infrastructure.Implementations.Configuration.Resolvers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace PlantGateway.Presentation.CLI.Rendering.StatusBoard
         private static string ResolveEnvironment()
         {
             // Keep this host-level. If you later move env resolution into Application, call a port instead.
-            return ConfigProvider.ResolveAppEnv(string.Empty).ToString();
+            return AppEnvironmentResolver.ResolveAppEnv(string.Empty).ToString();
         }
     }
 }

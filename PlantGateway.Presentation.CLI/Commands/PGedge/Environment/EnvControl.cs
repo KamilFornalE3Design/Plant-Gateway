@@ -1,17 +1,15 @@
 ﻿using Newtonsoft.Json.Linq;
-using SMSgroup.Aveva.Application.CLI.Settings.Environment;
-using SMSgroup.Aveva.Config.Abstractions;
-using SMSgroup.Aveva.Config.Implementation;
-using SMSgroup.Aveva.Config.Models;
-using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Config.Validation;
+using PlantGateway.Application.Abstractions.Configuration.Providers;
+using PlantGateway.Infrastructure.Implementations.Configuration.Resolvers;
+using PlantGateway.Presentation.CLI.Settings.PGedge.Environment;
 using Spectre.Console;
 using Spectre.Console.Cli;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using PlantGateway.Core.Config.Models.ValueObjects;
 using System.Xml.Linq;
 
-namespace SMSgroup.Aveva.Application.CLI.PGedge.Environment
+namespace PlantGateway.Presentation.CLI.Commands
 {
     [Description("Validate shared config and DLLs for a specific environment.")]
     public sealed class EnvControl : Command<EnvControlSettings>
@@ -424,7 +422,7 @@ namespace SMSgroup.Aveva.Application.CLI.PGedge.Environment
 
         // Environment resolution helper
         private static AppEnvironment ResolveEnv(string? raw)
-            => ConfigProvider.ResolveAppEnv(raw ?? string.Empty);
+            => AppEnvironmentResolver.ResolveAppEnv(raw ?? string.Empty);
 
         // ConfigEvars field resolver (aliases for friendly names)
         private static bool TryGetConfigEvarValue(ConfigEvars e, string name, out string value, out string normalizedName)
