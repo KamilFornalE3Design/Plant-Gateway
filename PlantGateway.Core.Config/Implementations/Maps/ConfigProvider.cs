@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using SMSgroup.Aveva.Config.Abstractions;
 using SMSgroup.Aveva.Config.Models;
-using SMSgroup.Aveva.Config.Models.ValueObjects;
+using PlantGateway.Core.Config.Models.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

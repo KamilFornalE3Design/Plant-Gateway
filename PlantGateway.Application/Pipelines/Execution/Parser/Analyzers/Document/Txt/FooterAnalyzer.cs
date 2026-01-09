@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlantGateway.Application.Pipelines.Execution.Parser.Analyzers.Document.Txt
 {
-    internal class FooterAnalyzer
+    public class FooterAnalyzer
     {
     }
 }
