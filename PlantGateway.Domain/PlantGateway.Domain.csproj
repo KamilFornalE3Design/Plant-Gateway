@@ -7,36 +7,39 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Services\Engines\Catref\Models\" />
     <Folder Include="Services\Engines\Catref\Stages\" />
-    <Folder Include="Services\Engines\Catref\Support\" />
-    <Folder Include="Services\Engines\Discipline\Support\" />
+    <Folder Include="Services\Engines\Discipline\Models\" />
     <Folder Include="Services\Engines\Discipline\Stages\" />
-    <Folder Include="Services\Engines\Disposition\Support\" />
+    <Folder Include="Services\Engines\Disposition\Models\" />
+    <Folder Include="Services\Engines\Entity\Models\" />
     <Folder Include="Services\Engines\Entity\Stages\" />
-    <Folder Include="Services\Engines\Entity\Support\" />
+    <Folder Include="Services\Engines\Hierarchy\Models\" />
     <Folder Include="Services\Engines\Hierarchy\Stages\" />
-    <Folder Include="Services\Engines\Hierarchy\Support\" />
+    <Folder Include="Services\Engines\Identity\Models\" />
     <Folder Include="Services\Engines\Identity\Stages\" />
-    <Folder Include="Services\Engines\Identity\Support\" />
+    <Folder Include="Services\Engines\Naming\Models\" />
     <Folder Include="Services\Engines\Naming\Stages\" />
-    <Folder Include="Services\Engines\Naming\Support\" />
+    <Folder Include="Services\Engines\Orientation\Models\" />
     <Folder Include="Services\Engines\Orientation\Stages\" />
     <Folder Include="Services\Engines\Orientation\Support\" />
+    <Folder Include="Services\Engines\Position\Models\" />
     <Folder Include="Services\Engines\Position\Stages\" />
     <Folder Include="Services\Engines\Position\Support\" />
+    <Folder Include="Services\Engines\Role\Models\" />
     <Folder Include="Services\Engines\Role\Stages\" />
     <Folder Include="Services\Engines\Role\Support\" />
+    <Folder Include="Services\Engines\Suffix\Models\" />
     <Folder Include="Services\Engines\Suffix\Stages\" />
     <Folder Include="Services\Engines\Suffix\Support\" />
+    <Folder Include="Services\Engines\Tag\Models\" />
     <Folder Include="Services\Engines\Tag\Stages\" />
     <Folder Include="Services\Engines\Tag\Support\" />
-    <Folder Include="Services\Engines\Token\Stages\" />
-    <Folder Include="Services\Engines\Token\Support\" />
+    <Folder Include="Services\Engines\Token\Models\" />
+    <Folder Include="Services\Engines\Transformation\Models\" />
     <Folder Include="Services\Engines\Transformation\Stages\" />
-    <Folder Include="Services\Engines\Transformation\Support\" />
+    <Folder Include="Services\Engines\Version\Models\" />
     <Folder Include="Services\Engines\Version\Stages\" />
-    <Folder Include="Services\Engines\Version\Support\" />
-    <Folder Include="Services\Tokenization\Support\" />
   </ItemGroup>
 
 </Project>

@@ -45,6 +45,7 @@ using PlantGateway.Core.Config.Implementations.Maps;
 using PlantGateway.Infrastructure.Implementations.Configuration.Watchers;
 using PlantGateway.Application.Pipelines.Execution.Parser.Analyzers.Elements;
 using PlantGateway.Application.Pipelines.Execution.Parser.Analyzers.Document.Xml;
+using PlantGateway.Domain.Specifications.Maps;
 
 namespace PlantGateway.Presentation.CLI
 {

@@ -1,4 +1,4 @@
-﻿using SMSgroup.Aveva.Config.Attributes;
+﻿using PlantGateway.Core.Config.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Text;

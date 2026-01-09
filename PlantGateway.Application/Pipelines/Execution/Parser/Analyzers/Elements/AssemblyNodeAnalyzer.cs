@@ -1,7 +1,6 @@
 ﻿using PlantGateway.Application.Pipelines.Execution.Parser.Interfaces;
-using SMSgroup.Aveva.Config.Models.ExecutionResults.Parser;
-using SMSgroup.Aveva.Config.Models.ValueObjects;
-using SMSgroup.Aveva.Utilities.Parser.Interfaces;
+using PlantGateway.Application.Pipelines.Results.Execution;
+using PlantGateway.Application.Pipelines.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +18,8 @@ namespace PlantGateway.Application.Pipelines.Execution.Parser.Analyzers.Elements
     /// </summary>
     public sealed class AssemblyNodeAnalyzer : IXElementAnalyzer
     {
-        private static readonly string AssemblyName = PGNodeKey.Assembly.ToString();
+        private static readonly string AssemblyName = 
+            Key.Assembly.ToString();
         private static readonly string RootName = PGNodeKey.Root.ToString();
         private static readonly string MatrixName = PGNodeKey.Matrix.ToString();
         private static readonly string GlobalMatrixName = PGNodeKey.GlobalMatrix.ToString();

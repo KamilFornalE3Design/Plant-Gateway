@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SMSgroup.Aveva.Config.Models.Disposition;
+using PlantGateway.Domain.Services.Engines.Disposition;
 
 namespace PlantGateway.Domain.Services.Engines.Abstractions
 {
